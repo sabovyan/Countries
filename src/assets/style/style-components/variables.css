@@ -1,0 +1,10 @@
+:root {
+  --prim-color: #63ab62;
+  --sec-color: white;
+  --main-font: 'Open Sans', sans-serif;
+  --text-color: #343434;
+  --bg-color: #efefef;
+  --nav-margin: 0 10px 0 0;
+  --theme-yellow: #faf2a0;
+  --nav-font-size: 1.4rem;
+}
