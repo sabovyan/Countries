@@ -7,10 +7,11 @@
 }
 
 .nav__logo {
+  display: block;
   min-width: 15px;
   width: 40px;
   padding: 2px 0;
-  margin: var(--nav-margin);
+  margin-left: 30px;
   /* ANCHOR this setting is temporary */
   background-color: transparent;
 }
@@ -21,21 +22,6 @@
 .nav__logo--dark {
   fill: var(--theme-yellow);
 }
-
-/* TODO moved to the main tag. 
-Change class name  */
-
-/* .nav__input {
-  min-width: 100px;
-  width: 300px;
-  margin: var(--nav-margin);
-  padding: 5px 10px;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  border: 1px solid var(--text-color);
-  outline: none;
-  border-radius: 3px;
-} */
 
 .l-nav__list-container {
   width: 100%;
@@ -131,6 +117,7 @@ Change class name  */
   width: 70px;
   height: 30px;
   border-radius: 30px;
+  z-index: 1;
 }
 
 .nav__theme--light {
@@ -160,8 +147,7 @@ Change class name  */
 }
 
 .nav__theme-slider--dark {
-  /* background-color: var(--text-color); */
-  transform: translateX(30px) rotate(35deg);
+  transform: translateX(100%) rotate(35deg);
   border-radius: 50%;
   box-shadow: 7px -5px 0 0 var(--theme-yellow);
 }
@@ -201,9 +187,5 @@ Change class name  */
 
   .nav__toggler {
     display: block;
-  }
-  .nav__theme {
-    margin-top: 10px;
-    margin-right: 10px;
   }
 }

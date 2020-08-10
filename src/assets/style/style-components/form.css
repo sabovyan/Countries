@@ -1,6 +1,6 @@
 .forms__background {
   height: 100vh;
-  width: 80vw;
+  width: 100vw;
   position: absolute;
   left: 0;
   top: 0;
@@ -11,22 +11,23 @@
 
 .forms__container {
   display: flex;
-
   position: relative;
 }
 
 .forms__overlap {
-  width: 320px;
+  width: 330px;
   height: 300px;
-  background-color: rgb(194, 194, 163);
   position: absolute;
-  margin: 20px;
-  top: 0;
   left: 0;
+  top: 0;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(194, 194, 163);
   cursor: pointer;
+  transition: transform 0.4s ease-out;
 }
 
-.forms__overlap--left {
+.forms__overlap--right {
   transform: translateX(100%);
 }
 
@@ -37,9 +38,6 @@
 .form {
   width: 300px;
   height: 300px;
-}
-
-.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,7 +46,6 @@
 }
 .form__title {
   align-self: flex-start;
-  border-bottom: 1px solid var(--text-color);
   text-transform: uppercase;
   background-color: transparent;
   z-index: 100;
@@ -78,3 +75,56 @@
   font-size: 1rem;
   border: 1px solid;
 }
+
+.form__submit:hover {
+  color: var(--bg-color);
+  background-color: var(--text-color);
+}
+
+.form__note {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  /* TODO check the sizes if it needs activate flex-column  */
+  .forms__container {
+    /* flex-direction: column; */
+  }
+  .form__note {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .form__link {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .forms__overlap {
+    display: none;
+  }
+
+  .form__display {
+    display: flex;
+  }
+
+  .form__hide {
+    display: none;
+  }
+}
+/* TODO moved to the main tag. 
+Change class name  */
+
+/* .nav__input {
+  min-width: 100px;
+  width: 300px;
+  margin: var(--nav-margin);
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  border: 1px solid var(--text-color);
+  outline: none;
+  border-radius: 3px;
+} */

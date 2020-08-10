@@ -37,6 +37,7 @@ const themeState = {
   },
 };
 
+/* SECTION Responsive hamburger menu functionality */
 navToggler.addEventListener('click', () => {
   if (navToggler.classList.contains('nav__toggler--close')) {
     changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
@@ -47,6 +48,7 @@ navToggler.addEventListener('click', () => {
   }
 });
 
+/* SECTION settings for  theme colors */
 navTheme.addEventListener('click', () => {
   themeState.bgColor = getComputedStyle(
     document.documentElement
@@ -74,5 +76,35 @@ navTheme.addEventListener('click', () => {
     changeState(themeSlider, themeState.slider.dark, themeState.slider.light);
 
     changeState(navLogo, themeState.logo.dark, themeState.logo.light);
+  }
+});
+
+/* SECTION form overlapping */
+const formCover = document.querySelector('.forms__overlap');
+
+formCover.addEventListener('click', () => {
+  if (formCover.classList.contains('forms__overlap--left')) {
+    changeState(formCover, 'forms__overlap--left', 'forms__overlap--right');
+  } else {
+    changeState(formCover, 'forms__overlap--right', 'forms__overlap--left');
+  }
+});
+const formSignIn = document.querySelector('.form__signIn');
+const formSignUp = document.querySelector('.form__signUp');
+
+const SignUpLink = document.querySelector('.signUp-link');
+const signInLink = document.querySelector('.signIn-link');
+
+signInLink.addEventListener('click', (e) => {
+  if (formSignIn.classList.contains('form__display')) {
+    changeState(formSignIn, 'form__display', 'form__hide');
+    changeState(formSignUp, 'form__hide', 'form__display');
+  }
+});
+
+SignUpLink.addEventListener('click', (e) => {
+  if (formSignUp.classList.contains('form__display')) {
+    changeState(formSignUp, 'form__display', 'form__hide');
+    changeState(formSignIn, 'form__hide', 'form__display');
   }
 });
