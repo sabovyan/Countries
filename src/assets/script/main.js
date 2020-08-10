@@ -1,4 +1,5 @@
-import { changeState } from './helper/function.helper.js';
+import { changeState } from './helper/function.helper';
+import { User } from './helper/user.helper';
 
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
@@ -89,6 +90,8 @@ formCover.addEventListener('click', () => {
     changeState(formCover, 'forms__overlap--right', 'forms__overlap--left');
   }
 });
+
+/* SECTION switching between 2 forms in  mobile version  */
 const formSignIn = document.querySelector('.form__signIn');
 const formSignUp = document.querySelector('.form__signUp');
 
@@ -108,3 +111,31 @@ SignUpLink.addEventListener('click', (e) => {
     changeState(formSignIn, 'form__hide', 'form__display');
   }
 });
+
+/* SECTION  login password registration */
+
+const regLogin = document.querySelector('#signUp-login');
+const regPassword = document.querySelector('#signUp-password');
+const regBtn = document.querySelector('#SignUp-submit');
+
+const users = [];
+regBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  try {
+    if (regLogin.value.trim() === '') {
+      /* TODO make an event for form input to return border color to black */
+      regLogin.style.borderColor = 'red';
+      throw new Error('Your Login should not be empty');
+    } else if (regPassword.value.trim().length < 6) {
+      throw new Error('Your Login should not be less than 5 characters');
+    }
+
+    const user = new User(regLogin.value.trim(), regPassword.value.trim());
+    users.push(user);
+  } catch (err) {
+    alert(err);
+  }
+});
+
+const SignInBtn = document.querySelector('#SignIn-submit');

@@ -188,6 +188,7 @@
                 name="SignIn-login"
                 id="SignIn-login"
                 autocomplete="off"
+                required
               />
             </section>
             <section class="form__section form__password-section">
@@ -202,10 +203,13 @@
                 type="password"
                 name="SignIn-password"
                 id="SignIn-password"
+                required
               />
             </section>
             <section class="form__section">
-              <button class="form__submit" type="submit">Sign in</button>
+              <button id="SignIn-submit" class="form__submit" type="submit">
+                Sign in
+              </button>
             </section>
             <section class="form__section">
               <p class="form__note">
@@ -227,6 +231,7 @@
                 name="login"
                 id="signUp-login"
                 autocomplete="off"
+                required
               />
             </section>
             <section class="form__section">
@@ -236,10 +241,14 @@
                 type="password"
                 name="signUp-password"
                 id="signUp-password"
+                required
+                minlength="5"
               />
             </section>
             <section class="form__section">
-              <button class="form__submit" type="submit">Sign Up</button>
+              <button id="SignUp-submit" class="form__submit" type="submit">
+                Sign Up
+              </button>
             </section>
             <section class="form__section">
               <p class="form__note">
