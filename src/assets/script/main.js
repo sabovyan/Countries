@@ -1,4 +1,4 @@
-import { changeState } from './helper/function.helper';
+import { changeState } from './helper/function.helper.js';
 
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
