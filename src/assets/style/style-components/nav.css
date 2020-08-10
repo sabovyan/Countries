@@ -15,21 +15,27 @@
   background-color: transparent;
 }
 
+.nav__logo--light {
+  fill: var(--text-color);
+}
 .nav__logo--dark {
   fill: var(--theme-yellow);
 }
 
-.nav__input {
+/* TODO moved to the main tag. 
+Change class name  */
+
+/* .nav__input {
   min-width: 100px;
   width: 300px;
   margin: var(--nav-margin);
   padding: 5px 10px;
   font-size: 1.2rem;
   letter-spacing: 2px;
-  border: 1px solid #80808080;
+  border: 1px solid var(--text-color);
   outline: none;
   border-radius: 3px;
-}
+} */
 
 .l-nav__list-container {
   width: 100%;
@@ -64,20 +70,15 @@
   padding: 4px 10px;
   letter-spacing: 2px;
   text-decoration: none;
-}
-
-.nav__login {
-  border: 1px solid var(--text-color);
-  border-radius: 3px;
   transition: font-size 0.1s linear;
 }
 
-.nav__login:hover {
-  font-size: calc(var(--nav-font-size) + 1px);
-}
-
 .nav__link:hover {
-  border-bottom: 1px solid black;
+  font-size: calc(var(--nav-font-size) + 1px);
+  border-bottom: 1px solid var(--text-color);
+}
+.nav__icon {
+  fill: var(--text-color);
 }
 
 .nav__toggler {
@@ -93,38 +94,37 @@
   width: 25px;
   height: 3px;
   margin: 5px;
-  /* ANCHOR   temporary*/
   background-color: var(--text-color);
 }
 
 .nav__toggler--close > .nav__line1 {
   transform: rotate(-45deg);
   transform-origin: right;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.1s ease-in;
 }
 .nav__toggler--close > .nav__line2 {
   opacity: 0;
-  transition: opacity 0.4s ease-in;
+  transition: opacity 0.1s ease-in;
 }
 .nav__toggler--close > .nav__line3 {
   transform: rotate(45deg);
   transform-origin: right;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.1s ease-in;
 }
 
 .nav__toggler--open > .nav__line1 {
   transform: rotate(0);
   transform-origin: right;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.1s ease-in;
 }
 .nav__toggler--open > .nav__line2 {
   opacity: 1;
-  transition: opacity 0.4s ease-in;
+  transition: opacity 0.1s ease-in;
 }
 .nav__toggler--open > .nav__line3 {
   transform: rotate(0);
   transform-origin: right;
-  transition: transform 0.4s ease-in;
+  transition: transform 0.1s ease-in;
 }
 .nav__theme {
   position: relative;
@@ -135,10 +135,11 @@
 
 .nav__theme--light {
   background-color: var(--text-color);
+  border: 1px solid transparent;
 }
-
 .nav__theme--dark {
   background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
 }
 
 .nav__theme-slider {
@@ -159,7 +160,7 @@
 }
 
 .nav__theme-slider--dark {
-  background-color: var(--bg-color);
+  /* background-color: var(--text-color); */
   transform: translateX(30px) rotate(35deg);
   border-radius: 50%;
   box-shadow: 7px -5px 0 0 var(--theme-yellow);
