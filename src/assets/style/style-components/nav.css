@@ -58,10 +58,11 @@
   text-decoration: none;
   transition: font-size 0.1s linear;
 }
-
+.nav__link--active {
+  border-bottom: 1px solid var(--text-color);
+}
 .nav__link:hover {
   font-size: calc(var(--nav-font-size) + 1px);
-  border-bottom: 1px solid var(--text-color);
 }
 .nav__icon {
   fill: var(--text-color);

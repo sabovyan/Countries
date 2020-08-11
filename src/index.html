@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./assets/style/style.css" />
+    <script defer src="./assets/script/theme.loader.js"></script>
     <title>login</title>
   </head>
   <body>
@@ -80,7 +82,7 @@
       <div class="l-nav__list-container nav__list-container--hide">
         <ul class="nav__list">
           <li class="nav__item">
-            <a href="" class="nav__link">
+            <a href="./assets/pages/countries.html" class="nav__link">
               <!-- ANCHOR SVG flag -->
               <svg
                 width="15"
@@ -113,7 +115,7 @@
           </li>
 
           <li class="nav__item">
-            <a href="" class="nav__link">
+            <a href="./assets/pages/favorites.html" class="nav__link">
               <!-- ANCHOR SVG star -->
               <svg
                 width="15"
@@ -214,7 +216,7 @@
             <section class="form__section">
               <p class="form__note">
                 Don't have an account?
-                <span class="form__link signIn-link">
+                <span tabindex="0" class="form__link signIn-link">
                   Register
                 </span>
               </p>
@@ -253,7 +255,7 @@
             <section class="form__section">
               <p class="form__note">
                 Back to
-                <span class="form__link signUp-link">
+                <span tabindex="0" class="form__link signUp-link">
                   Sign In
                 </span>
               </p>
@@ -263,34 +265,6 @@
       </div>
     </main>
 
-    <!-- <main>
-  <input type="text" id="navSearch" class="nav__input" autocomplete="off" />
-</main> -->
-    <!-- SECTION footer  -->
-    <!--     <footer class="footer__main">
-    
-        <div>
-          icons were made by
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
-            >Freepik</a
-          >
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com</a
-          >
-        </div>
-        <div>
-          Logo was made by
-          <a href="https://www.flaticon.com/authors/turkkub" title="turkkub"
-            >turkkub</a
-          >
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon"
-            >www.flaticon.com</a
-          >
-        </div>
-      </div>
-    </footer> -->
-    <script type="module" src="./assets/script/main.js"></script>
+    <script src="./assets/script/main.js"></script>
   </body>
 </html>

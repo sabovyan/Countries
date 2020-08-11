@@ -1,5 +1,4 @@
 import { changeState } from './helper/function.helper';
-import { User } from './helper/user.helper';
 
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
@@ -38,7 +37,7 @@ const themeState = {
   },
 };
 
-/* SECTION Responsive hamburger menu functionality */
+/* SECTION hamburger menu */
 navToggler.addEventListener('click', () => {
   if (navToggler.classList.contains('nav__toggler--close')) {
     changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
@@ -54,7 +53,6 @@ navTheme.addEventListener('click', () => {
   themeState.bgColor = getComputedStyle(
     document.documentElement
   ).getPropertyValue('--bg-color');
-
   themeState.txtColor = getComputedStyle(
     document.documentElement
   ).getPropertyValue('--text-color');
@@ -63,7 +61,11 @@ navTheme.addEventListener('click', () => {
     '--text-color',
     themeState.bgColor
   );
+  localStorage.setItem('textColor', themeState.bgColor);
+
   document.documentElement.style.setProperty('--bg-color', themeState.txtColor);
+
+  localStorage.setItem('bgColor', themeState.txtColor);
 
   if (themeSlider.classList.contains('nav__theme-slider--light')) {
     changeState(themeIndicator, themeState.theme.light, themeState.theme.dark);
@@ -117,8 +119,8 @@ SignUpLink.addEventListener('click', (e) => {
 const regLogin = document.querySelector('#signUp-login');
 const regPassword = document.querySelector('#signUp-password');
 const regBtn = document.querySelector('#SignUp-submit');
+const users = {};
 
-const users = [];
 regBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -127,15 +129,60 @@ regBtn.addEventListener('click', (e) => {
       /* TODO make an event for form input to return border color to black */
       regLogin.style.borderColor = 'red';
       throw new Error('Your Login should not be empty');
+    } else if (localStorage.getItem(regLogin.value.trim())) {
+      throw new Error('this name is already is in use');
     } else if (regPassword.value.trim().length < 6) {
-      throw new Error('Your Login should not be less than 5 characters');
+      throw new Error('Your password should not be less than 5 characters');
+    }
+    let login = regLogin.value.trim();
+    let password = regPassword.value;
+    users[login] = password;
+    localStorage.setItem('users', JSON.stringify(users));
+    let registered = confirm(
+      'well done! Now please go to sign in to enter your acount'
+    );
+    if (registered && formSignUp.classList.contains('form__display')) {
+      changeState(formSignUp, 'form__display', 'form__hide');
+      changeState(formSignIn, 'form__hide', 'form__display');
     }
 
-    const user = new User(regLogin.value.trim(), regPassword.value.trim());
-    users.push(user);
+    console.log(localStorage);
   } catch (err) {
-    alert(err);
+    alert(err.message);
+    console.dir(err);
   }
 });
 
+/* SECTION  login password sign in */
 const SignInBtn = document.querySelector('#SignIn-submit');
+const SignInLogin = document.querySelector('#SignIn-login');
+const SignInPassword = document.querySelector('#SignIn-password');
+
+SignInBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  let users = JSON.parse(localStorage.getItem('users'));
+  let login = SignInLogin.value.trim();
+  let password = SignInPassword.value;
+
+  try {
+    if (login.trim() === '' || password.trim() === '') {
+      throw new Error('please fill in the inputs!');
+    } else {
+      if (!users[login]) {
+        throw new Error('there is no user with this name');
+      }
+      if (users[login] !== password) {
+        console.log(users[login]);
+        throw new Error('Your Password was incorrect');
+      }
+    }
+    if (users[login] && users[login] === password) {
+      window.location.pathname = '/assets/pages/countries.html';
+
+      /* TODO - not final you must change the address link */
+      // window.open('assets/pages/countries.html');
+    }
+  } catch (err) {
+    alert(err.message);
+  }
+});
