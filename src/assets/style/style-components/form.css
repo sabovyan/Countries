@@ -114,17 +114,3 @@
     display: none;
   }
 }
-/* TODO moved to the main tag. 
-Change class name  */
-
-/* .nav__input {
-  min-width: 100px;
-  width: 300px;
-  margin: var(--nav-margin);
-  padding: 5px 10px;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  border: 1px solid var(--text-color);
-  outline: none;
-  border-radius: 3px;
-} */

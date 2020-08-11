@@ -1,52 +1,10 @@
 import { changeState } from './helper/function.helper';
-
-const navList = document.querySelector('.l-nav__list-container');
-const navToggler = document.querySelector('.nav__toggler');
+import { menuState, themeState } from './helper/constants';
 
 const themeIndicator = document.querySelector('.nav__theme');
 const themeSlider = document.querySelector('.nav__theme-slider');
 const navTheme = document.querySelector('.nav__theme');
 const navLogo = document.querySelector('.nav__logo');
-
-const menuState = {
-  toggle: {
-    close: 'nav__toggler--close',
-    open: 'nav__toggler--open',
-  },
-
-  navList: {
-    display: 'nav__list-container--display',
-    hide: 'nav__list-container--hide',
-  },
-};
-
-const themeState = {
-  theme: {
-    light: 'nav__theme--light',
-    dark: 'nav__theme--dark',
-  },
-
-  slider: {
-    light: 'nav__theme-slider--light',
-    dark: 'nav__theme-slider--dark',
-  },
-
-  logo: {
-    light: 'nav__logo--light',
-    dark: 'nav__logo--dark',
-  },
-};
-
-/* SECTION hamburger menu */
-navToggler.addEventListener('click', () => {
-  if (navToggler.classList.contains('nav__toggler--close')) {
-    changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
-    changeState(navList, menuState.navList.display, menuState.navList.hide);
-  } else {
-    changeState(navToggler, menuState.toggle.open, menuState.toggle.close);
-    changeState(navList, menuState.navList.hide, menuState.navList.display);
-  }
-});
 
 /* SECTION settings for  theme colors */
 navTheme.addEventListener('click', () => {
@@ -178,9 +136,6 @@ SignInBtn.addEventListener('click', (e) => {
     }
     if (users[login] && users[login] === password) {
       window.location.pathname = '/assets/pages/countries.html';
-
-      /* TODO - not final you must change the address link */
-      // window.open('assets/pages/countries.html');
     }
   } catch (err) {
     alert(err.message);

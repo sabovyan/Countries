@@ -9,6 +9,7 @@
     />
     <link rel="stylesheet" href="../style/style.css" />
     <script defer src="../script/theme.loader.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <title>Countries</title>
   </head>
   <body>
@@ -172,8 +173,14 @@
     </nav>
     <main class="countries__main">
       <div class="countries__search-container">
-        <input type="text" id="" class="countries__search" autocomplete="off" />
+        <input
+          type="text"
+          id="search"
+          class="countries__search"
+          autocomplete="off"
+        />
       </div>
+      <section class="countries__section"></section>
     </main>
     <!-- SECTION footer  -->
     <!--     <footer class="footer__main">
@@ -200,6 +207,6 @@
         </div>
       </div>
     </footer> -->
-    <script src="../script/main.js"></script>
+    <script src="../script/country.js"></script>
   </body>
 </html>
