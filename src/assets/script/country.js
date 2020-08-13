@@ -1,6 +1,6 @@
 import { changeState } from './helper/function.helper';
 import { menuState, themeState } from './helper/constants';
-import { D3 } from 'D3';
+import { select } from 'd3'
 
 
 /* SECTION hamburger menu */
