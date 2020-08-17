@@ -26,3 +26,11 @@ export const themeState = {
 		dark: 'nav__logo--dark',
 	},
 };
+
+export const MAP_URL =
+	'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+
+export const REST_URL = {
+	byName: 'https://restcountries.eu/rest/v2/name/',
+	all: 'https://restcountries.eu/rest/v2/all',
+};

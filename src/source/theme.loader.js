@@ -27,7 +27,6 @@ const changeThemeState = () => {
 	}
 };
 changeThemeState();
-
 navTheme.addEventListener('click', () => {
 	themeState.bgColor = getComputedStyle(
 		document.documentElement

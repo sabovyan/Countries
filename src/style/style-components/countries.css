@@ -26,6 +26,9 @@
 	margin: 20px;
 	border: 1px solid;
 }
+.world {
+	fill: var(--text-color);
+}
 .country {
 	stroke: var(--text-color);
 	fill: var(--bg-color);
@@ -34,7 +37,15 @@
 .country:hover {
 	fill: red;
 }
-.circle {
-	stroke: red;
-	stroke-width: 1px;
+
+.countries__modal {
+	background-color: pink;
+}
+.countries__modal-inner {
+	width: 400px;
+	height: 400px;
+	background-color: transparent;
+}
+h2 {
+	background-color: transparent;
 }

@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="../style/style.css" />
-  <script defer src="../source/theme.loader.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://unpkg.com/topojson@3"></script>
   <title>Countries</title>
@@ -131,16 +130,31 @@
     </div>
   </nav>
   <main class="countries__main">
-    <div class="countries__search-container">
-      <input type="text" id="search" class="countries__search" autocomplete="off" />
-    </div>
+
+    <nav class="countries__nav">
+      <ul class="countries__list">
+        <li class="countries__item countries__map"></li>
+        <li class="countries__item countries__table"></li>
+      </ul>
+    </nav>
+
     <section class="countries__section">
-      <svg width="500" height="500" id="countriesMap"></svg>
+      <div class="countries__search-container">
+        <input type="text" id="search" class="countries__search" autocomplete="off" />
+      </div>
     </section>
+
+    <section class="countries__section">
+      <svg width="600" height="500" id="countriesMap"></svg>
+    </section>
+
+    <div class="countries__modal">
+      <div class="countries__modal-inner"></div>
+    </div>
   </main>
+
   <!--SECTION footer -->
   <footer class="footer__main">
-
     <div>
       icons were made by
       <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
@@ -156,6 +170,7 @@
     </div>
     </div>
   </footer>
+  <script defer src="../source/theme.loader.js"></script>
   <script src="../source/country.js"></script>
 </body>
 

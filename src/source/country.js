@@ -1,12 +1,18 @@
 import 'babel-polyfill';
 import { select, json, geoPath, geoMercator, zoom, event } from 'd3';
 import { feature } from 'topojson';
+
+import { getMap } from './helper/map.helper';
 import { changeState } from './helper/function.helper';
-import { menuState } from './helper/constants';
+import { menuState, MAP_URL, REST_URL } from './constants/constants';
+import { doGet } from './helper/request.helper';
+
+// import '../style/style.css';
 
 /* SECTION hamburger menu */
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
+const modalContext = document.querySelector('.countries__modal-inner');
 
 navToggler.addEventListener('click', () => {
 	if (navToggler.classList.contains('nav__toggler--close')) {
@@ -18,50 +24,28 @@ navToggler.addEventListener('click', () => {
 	}
 });
 
-const svg = select('#countriesMap');
-
 const render = async () => {
-	const width = svg.attr('width');
-	const height = svg.attr('height');
-	const projection = geoMercator()
-		.scale(80)
-		.translate([width / 2, height / 2]);
-	const pathGenerator = geoPath().projection(projection);
+	const worldMap = await json(MAP_URL);
+	const countriesMap = feature(worldMap, worldMap.objects.countries);
 
-	const sphere = { type: 'Sphere' };
+	const svg = select('#countriesMap');
+	const g = await getMap(svg, countriesMap);
+	g.on('click', async (d) => {
+		modalContext.innerHTML = '';
+		let selected = d.properties.name.toLowerCase();
+		// TODO delete console log
+		console.log(selected);
 
-	const g = svg.append('g');
-	g.append('path').attr('class', 'rect').attr('d', pathGenerator(sphere));
-	function zoomed() {
-		g.attr('transform', event.transform);
-	}
+		const json = await doGet(`${REST_URL.byName}${selected}`);
 
-	svg.call(
-		zoom()
-			.extent([
-				[0, 0],
-				[width, height],
-			])
-			.scaleExtent([1.1, 8])
-			.on('zoom', zoomed)
-	);
-
-	const world = await json(
-		'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json'
-	);
-	const countries = feature(world, world.objects.countries);
-	/* TODO delete it after you complete */
-
-	g.attr('class', 'world')
-		.selectAll('path')
-		.data(countries.features)
-		.enter()
-		.append('path')
-		.attr('class', 'country')
-		.attr('d', pathGenerator)
-		.on('click', (d) => {
-			console.log(d.properties.name);
-		});
+		const h2 = document.createElement('h2');
+		const img = document.createElement('img');
+		img.width = 100;
+		img.src = json[0].flag;
+		h2.textContent = json[0].name;
+		modalContext.append(h2);
+		modalContext.append(img);
+	});
 };
 
 render();
