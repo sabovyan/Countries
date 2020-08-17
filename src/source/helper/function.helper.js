@@ -9,6 +9,6 @@
  */
 
 export function changeState(elem, removedClass, addedClass) {
-  elem.classList.remove(removedClass);
-  elem.classList.add(addedClass);
+	elem.classList.remove(removedClass);
+	elem.classList.add(addedClass);
 }

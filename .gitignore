@@ -1,6 +1,10 @@
-# Dependency directory
-node_modules
-# Cache for Parcel
+# dependencies
+/node_modules
+
+# production
 .cache
-# dist
-dist
+/dist
+
+# vs code
+.vscode
+

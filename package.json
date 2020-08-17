@@ -4,22 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "rm": "rimraf",
-    "dev": "parcel src/index.html",
-    "build": "rimraf dist && rimraf .cache && parcel build src/index.html"
+    "dev": " rm -rf dist && parcel index.html",
+    "build": "rimraf dist && rimraf .cache && parcel build index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-react": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-runtime": "^6.26.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "d3": "^5.16.0",
-    "rimraf": "^3.0.2"
+    "topojson": "^3.0.2",
+    "versor": "^0.1.2"
   }
 }

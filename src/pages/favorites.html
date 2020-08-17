@@ -8,8 +8,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="../style/style.css" />
   <script defer src="../script/theme.loader.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <title>Countries</title>
+  <title>Favorites</title>
 </head>
 
 <body>
@@ -70,7 +69,7 @@
     <div class="l-nav__list-container nav__list-container--hide">
       <ul class="nav__list">
         <li class="nav__item">
-          <a href="./countries.html" class="nav__link nav__link--active">
+          <a href="./countries.html" class="nav__link">
             <!-- ANCHOR SVG flag -->
             <svg width="15" class="nav__icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
@@ -91,7 +90,7 @@
         </li>
 
         <li class="nav__item">
-          <a href="./favorites.html" class="nav__link">
+          <a href="./favorites.html" class="nav__link nav__link--active">
             <!-- ANCHOR SVG star -->
             <svg width="15" class="nav__icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
@@ -129,14 +128,7 @@
       </ul>
     </div>
   </nav>
-  <main class="countries__main">
-    <div class="countries__search-container">
-      <input type="text" id="search" class="countries__search" autocomplete="off" />
-    </div>
-    <section class="countries__section">
-      <svg width="400" height="1000" id="myMap"></svg>
-    </section>
-  </main>
+  <main class="countries__main"></main>
   <!-- SECTION footer  -->
   <!--     <footer class="footer__main">
     
@@ -162,7 +154,7 @@
         </div>
       </div>
     </footer> -->
-  <script src="../script/country.js"></script>
+  <script src="../script/favorite.js"></script>
 </body>
 
 </html>
