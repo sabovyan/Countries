@@ -1,3 +1,25 @@
+.countries__nav {
+	width: 100%;
+}
+.countries__list {
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.countries__item {
+	margin-right: 10px;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	transition: color 400ms ease-in-out;
+}
+
+.countries__item--active {
+	background-color: var(--text-color);
+	color: var(--bg-color);
+}
+
 .countries__main {
 	display: flex;
 	flex-direction: column;
@@ -24,7 +46,7 @@
 
 #countriesMap {
 	margin: 20px;
-	border: 1px solid;
+	border: 1px solid var(--text-color);
 }
 .world {
 	fill: var(--text-color);
@@ -35,17 +57,5 @@
 	stroke-width: 0.1;
 }
 .country:hover {
-	fill: red;
-}
-
-.countries__modal {
-	background-color: pink;
-}
-.countries__modal-inner {
-	width: 400px;
-	height: 400px;
-	background-color: transparent;
-}
-h2 {
-	background-color: transparent;
+	fill: #db453a;
 }

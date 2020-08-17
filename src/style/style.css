@@ -2,6 +2,7 @@
 @import './style-components/nav.css';
 @import './style-components/form.css';
 @import './style-components/countries.css';
+@import './style-components/card.css';
 
 * {
 	padding: 0;

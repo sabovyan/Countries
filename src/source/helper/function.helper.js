@@ -12,3 +12,24 @@ export function changeState(elem, removedClass, addedClass) {
 	elem.classList.remove(removedClass);
 	elem.classList.add(addedClass);
 }
+
+/**
+ * this function is dedicated to format large numbers related to country's area and population
+ * @param {number} number take a number
+ * @returns {string} that instead of zeros will display million or thousand
+ */
+export function formatNumber(number) {
+	let res = null;
+	if (number > 1000000000) {
+		res = `more than ${Math.round(number / 1000000000)} billion`;
+	} else if (number > 1000000) {
+		res = `${Math.round(number / 1000000)} million`;
+	} else {
+		let num = Math.round(number / 1000);
+		if (num <= 1000) {
+			res = `about one thousand`;
+		}
+		res = `${Math.round(number / 1000)} thousand`;
+	}
+	return res;
+}

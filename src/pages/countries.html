@@ -133,28 +133,66 @@
 
     <nav class="countries__nav">
       <ul class="countries__list">
-        <li class="countries__item countries__map"></li>
-        <li class="countries__item countries__table"></li>
+        <li class="countries__item countries__item--active countries__map">Map</li>
+        <li class="countries__item countries__table">Table</li>
       </ul>
     </nav>
 
-    <section class="countries__section">
+    <section style="display: none;" class="countries__section">
       <div class="countries__search-container">
         <input type="text" id="search" class="countries__search" autocomplete="off" />
       </div>
     </section>
 
     <section class="countries__section">
-      <svg width="600" height="500" id="countriesMap"></svg>
+      <svg width="960" height="500" id="countriesMap"></svg>
     </section>
 
-    <div class="countries__modal">
-      <div class="countries__modal-inner"></div>
+    <div class="countries__card">
+      <div class="countries__card-inner">
+
+        <div class="card__top">
+          <svg width="20" class="card__star card__button" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+            style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+            <title>Add to your favorites</title>
+            <g>
+              <g>
+                <path d="M511.266,197.256c-1.764-5.431-6.458-9.388-12.108-10.209l-158.722-23.065L269.452,20.155
+          			c-2.527-5.12-7.741-8.361-13.451-8.361c-5.709,0-10.924,3.242-13.451,8.361l-70.988,143.828L12.843,187.047
+          			c-5.65,0.821-10.344,4.779-12.108,10.209c-1.765,5.43-0.293,11.391,3.795,15.376l114.848,111.955L92.27,482.67
+          			c-0.965,5.627,1.349,11.315,5.968,14.67c4.618,3.355,10.74,3.798,15.797,1.142L256,423.846l141.961,74.637
+          			c2.195,1.154,4.591,1.723,6.979,1.723c3.11,0,6.206-0.966,8.818-2.865c4.619-3.356,6.933-9.043,5.968-14.671L392.61,324.587
+          			l114.86-111.954C511.559,208.647,513.031,202.686,511.266,197.256z M366.023,308.608c-3.536,3.446-5.15,8.412-4.314,13.278
+          			l23.311,135.898l-122.038-64.162c-4.37-2.297-9.591-2.297-13.961,0l-122.045,64.163l23.304-135.9
+          			c0.834-4.866-0.779-9.83-4.313-13.276l-98.731-96.244l136.445-19.829c4.886-0.71,9.108-3.778,11.294-8.205L256,60.685
+          			l61.023,123.645c2.186,4.427,6.408,7.496,11.294,8.206l136.447,19.828L366.023,308.608z" />
+              </g>
+            </g>
+          </svg>
+          <svg width="20" class="card__close card__button" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+            style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+            <title>Close</title>
+            <g>
+              <g>
+                <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+          			L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+          			c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+          			l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+          			L284.286,256.002z" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="card__body"></div>
+      </div>
     </div>
   </main>
 
   <!--SECTION footer -->
   <footer class="footer__main">
+
     <div>
       icons were made by
       <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
@@ -168,6 +206,7 @@
       from
       <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
     </div>
+
     </div>
   </footer>
   <script defer src="../source/theme.loader.js"></script>
