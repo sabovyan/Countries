@@ -12,11 +12,12 @@
 }
 .countries__card-inner {
 	width: 600px;
-	height: 400px;
+	height: 300px;
 	background-color: var(--bg-color);
 	border-radius: 10px;
 	box-shadow: 10px 10px 10px grey;
 }
+
 .card__top {
 	background-color: transparent;
 	display: flex;

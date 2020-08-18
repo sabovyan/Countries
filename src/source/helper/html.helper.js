@@ -4,12 +4,14 @@ import { formatNumber } from './function.helper';
 export function createCard(json, body) {
 	const country = new Country(
 		json[0].name,
+		json[0].numericCode,
 		json[0].flag,
 		json[0].population,
 		json[0].area,
 		json[0].capital,
 		json[0].languages[0].nativeName
 	);
+
 	const img = document.createElement('img');
 	img.setAttribute('class', 'card__image');
 	img.width = 100;

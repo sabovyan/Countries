@@ -33,3 +33,21 @@ export function formatNumber(number) {
 	}
 	return res;
 }
+
+/**
+ * takes the country's name from the map, turns it into a proper name for searching
+ * @param {string} selected
+ * @returns {string} which corresponds to the API requirements
+ */
+export function matchName(selected) {
+	let res = '';
+	if (selected === 'dem. rep. congo') {
+		res = 'DR Congo';
+	} else if (selected === 'central african rep.') {
+		res = 'Central African Republic';
+	} else {
+		res = selected;
+	}
+
+	return res;
+}

@@ -1,13 +1,11 @@
 import 'babel-polyfill';
-import { select, json, geoPath, geoMercator, zoom, event } from 'd3';
+import { select, json } from 'd3';
 import { feature } from 'topojson';
-
-import { getMap } from './helper/map.helper';
-import { changeState } from './helper/function.helper';
 import { menuState, MAP_URL, REST_URL } from './constants/constants';
-import { doGet } from './helper/request.helper';
-import { Country } from './helper/class.helper';
+import { changeState, matchName } from './helper/function.helper';
 import { createCard } from './helper/html.helper';
+import { doGet } from './helper/request.helper';
+import { getMap } from './helper/map.helper';
 
 // import '../style/style.css';
 
@@ -26,8 +24,9 @@ navToggler.addEventListener('click', () => {
 });
 
 const cardContext = document.querySelector('.countries__card-inner');
-
 const cardBody = document.querySelector('.card__body');
+const countriesCard = document.querySelector('.countries__card');
+const cardCloseBtn = document.querySelector('.card__close');
 
 const render = async () => {
 	const worldMap = await json(MAP_URL);
@@ -44,11 +43,29 @@ const render = async () => {
 		// TODO delete console log
 		console.log(selected);
 
-		const json = await doGet(`${REST_URL.byName}${selected}`);
-		/* TODO take this class to html creator function */
+		/* if (selected === 'dem. rep. congo') {
+			selected = 'DR Congo';
+		}
+		if (selected === 'central african rep.') {
+			selected = 'Central African Republic';
+		} */
+		selected = matchName(selected);
 
-		console.log(createCard(json, cardBody));
+		const json = await doGet(`${REST_URL.byName}${selected}`);
+		console.log(json);
+
+		createCard(json, cardBody);
+		countriesCard.style.display = 'flex';
 	});
 };
 
 render();
+
+countriesCard.addEventListener('click', (e) => {
+	if (e.target === cardCloseBtn) {
+		countriesCard.style.display = 'none';
+	}
+	if (e.target === countriesCard) {
+		countriesCard.style.display = 'none';
+	}
+});
