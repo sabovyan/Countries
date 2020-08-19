@@ -23,47 +23,78 @@ navToggler.addEventListener('click', () => {
 	}
 });
 
-const cardContext = document.querySelector('.countries__card-inner');
+/* card */
 const cardBody = document.querySelector('.card__body');
 const countriesCard = document.querySelector('.countries__card');
 const cardCloseBtn = document.querySelector('.card__close');
 const cardStarBtn = document.querySelector('.card__star');
+
+/* navigation */
+const countriesNavItem = document.querySelectorAll('.countries__item');
+const countriesNavMap = document.querySelector('.countries__item-map');
+const countriesNavTable = document.querySelector('.countries__item-table');
+const CountriesNav = [countriesNavMap, countriesNavTable];
+const mapSection = document.querySelector('.countries__section-map');
+const tableSection = document.querySelector('.countries__section-table');
+
+/* storage */
+const storage = window.localStorage;
+
 const state = {
 	favCountries: JSON.parse(window.localStorage.getItem('favorites')) || [],
+	countryNav: JSON.parse(storage.getItem('countryNav')) || {
+		table: false,
+		map: true,
+	},
 };
 
+const svg = select('#countriesMap');
+
 const render = async () => {
-	const worldMap = await json(MAP_URL);
-	const countriesMap = feature(worldMap, worldMap.objects.countries);
+	if (state.countryNav.map === true) {
+		tableSection.style.display = 'none';
+		mapSection.style.display = 'block';
+		countriesNavTable.classList.remove('countries__item--active');
+		countriesNavMap.classList.add('countries__item--active');
 
-	const svg = select('#countriesMap');
-	const g = getMap(svg, countriesMap);
-	g.on('click', async (d) => {
-		cardBody.innerHTML = '';
-		let selected = d.properties.name.toLowerCase();
+		svg.selectAll('*').remove();
+		const worldMap = await json(MAP_URL);
+		const countriesMap = feature(worldMap, worldMap.objects.countries);
 
-		// TODO delete console log
-		console.log(selected);
+		const g = getMap(svg, countriesMap);
+		g.on('click', async (d) => {
+			let selected = d.properties.name.toLowerCase();
 
-		selected = matchName(selected);
+			// TODO delete console log
+			console.log(selected);
 
-		const countryData = await doGet(`${REST_URL.byName}${selected}`);
+			selected = matchName(selected);
 
-		state.country = new Country(
-			countryData[0].name,
-			countryData[0].alpha3Code,
-			countryData[0].flag,
-			countryData[0].population,
-			countryData[0].area,
-			countryData[0].capital,
-			countryData[0].languages[0].nativeName
-		);
-		createCard(state.country, cardBody);
-		if (state.favCountries.includes(state.country.alpha3Code)) {
-			cardStarBtn.classList.add('card__start--added');
-		}
-		countriesCard.style.display = 'flex';
-	});
+			const countryData = await doGet(`${REST_URL.byName}${selected}`);
+			/* TODO create card call function */
+			state.country = new Country(
+				countryData[0].name,
+				countryData[0].alpha3Code,
+				countryData[0].flag,
+				countryData[0].population,
+				countryData[0].area,
+				countryData[0].capital,
+				countryData[0].languages[0].nativeName
+			);
+			cardBody.innerHTML = '';
+			createCard(state.country, cardBody);
+			if (state.favCountries.includes(state.country.alpha3Code)) {
+				cardStarBtn.classList.add('card__start--added');
+			}
+			countriesCard.style.display = 'flex';
+		});
+	}
+	if (state.countryNav.table === true) {
+		mapSection.style.display = 'none';
+		tableSection.style.display = 'block';
+		countriesNavMap.classList.remove('countries__item--active');
+		countriesNavTable.classList.add('countries__item--active');
+	}
 };
 
 render();
@@ -85,4 +116,32 @@ countriesCard.addEventListener('click', (e) => {
 	if (e.target === cardStarBtn || e.target === cardStarPolygon) {
 		state.favCountries = setFavorite(cardStarBtn, state, state.country);
 	}
+});
+
+/* SECTION Countries inner navigation */
+
+CountriesNav.forEach((navItem) => {
+	navItem.addEventListener('click', (e) => {
+		countriesNavItem.forEach((item) => {
+			item.classList.remove('countries__item--active');
+		});
+		navItem.classList.add('countries__item--active');
+		console.log(navItem.className);
+		if (e.target === countriesNavMap) {
+			tableSection.style.display = 'none';
+			mapSection.style.display = 'block';
+
+			state.countryNav.map = true;
+			state.countryNav.table = false;
+			storage.setItem('countryNav', JSON.stringify(state.countryNav));
+		} else {
+			mapSection.style.display = 'none';
+			tableSection.style.display = 'block';
+
+			state.countryNav.table = true;
+			state.countryNav.map = false;
+			storage.setItem('countryNav', JSON.stringify(state.countryNav));
+		}
+		render();
+	});
 });

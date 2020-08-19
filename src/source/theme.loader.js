@@ -8,7 +8,7 @@ const navLogo = document.querySelector('.nav__logo');
 
 const changeThemeState = () => {
 	const textColor = localStorage.getItem('textColor') || '#efefef';
-	const bgColor = localStorage.getItem('bgColor') || '';
+	const bgColor = localStorage.getItem('bgColor') || '#343434';
 	document.documentElement.style.setProperty('--text-color', textColor);
 	document.documentElement.style.setProperty('--bg-color', bgColor);
 

@@ -1,5 +1,7 @@
+/* navigation */
+
 .countries__nav {
-	width: 100%;
+	margin-left: 1rem;
 }
 .countries__list {
 	list-style: none;
@@ -21,6 +23,7 @@
 }
 
 .countries__main {
+	min-height: 70vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -28,10 +31,13 @@
 	margin: 2rem;
 }
 
+/* SECTION table */
+
 .countries__search-container {
 	width: 100%;
 	align-items: flex-start;
 }
+
 .countries__search {
 	min-width: 100px;
 	width: 300px;
@@ -44,6 +50,7 @@
 	border-radius: 3px;
 }
 
+/* SECTION map */
 #countriesMap {
 	margin: 20px;
 	border: 1px solid var(--text-color);
