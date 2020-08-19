@@ -1,4 +1,5 @@
 import { formatNumber } from './function.helper';
+import { svg, select } from 'd3';
 /**
  * @description createCard function creates a separate card to display country's details
  * @param {object} country
@@ -55,11 +56,11 @@ export function CreateCountryHTML({ flag, name }, width) {
 
 	//  star
 	const star = document.createElement('svg');
-
-	// append to bottom line
+	svg// append to bottom line
 
 	// region
-	container.append(img);
+	.container
+		.append(img);
 	container.append(bottomLine);
 
 	return container;

@@ -1,116 +1,116 @@
 .forms__background {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .forms__container {
-  display: flex;
-  position: relative;
+	display: flex;
+	position: relative;
 }
 
 .forms__overlap {
-  width: 330px;
-  height: 300px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 10px;
-  padding: 10px;
-  background-color: rgb(194, 194, 163);
-  cursor: pointer;
-  transition: transform 0.4s ease-out;
+	width: 330px;
+	height: 300px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 10px;
+	padding: 10px;
+	background-color: var(--sec-color);
+	cursor: pointer;
+	transition: transform 0.4s ease-out;
 }
 
 .forms__overlap--right {
-  transform: translateX(100%);
+	transform: translateX(100%);
 }
 
 .forms__overlap--left {
-  transform: translateX(0);
+	transform: translateX(0);
 }
 
 .form {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
 }
 .form__title {
-  align-self: flex-start;
-  text-transform: uppercase;
-  background-color: transparent;
-  z-index: 100;
-  cursor: pointer;
+	align-self: flex-start;
+	text-transform: uppercase;
+	background-color: transparent;
+	z-index: 100;
+	cursor: pointer;
 }
 .form__section {
-  display: flex;
-  flex-direction: column;
-  margin: 5px;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: 5px;
+	width: 100%;
 }
 
 .form__label {
-  text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .form__label,
 .form__input {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .form__input {
-  padding: 10px;
-  border: 1px solid;
+	padding: 10px;
+	border: 1px solid;
 }
 .form__submit {
-  padding: 10px 0;
-  font-size: 1rem;
-  border: 1px solid;
+	padding: 10px 0;
+	font-size: 1rem;
+	border: 1px solid;
 }
 
 .form__submit:hover {
-  color: var(--bg-color);
-  background-color: var(--text-color);
+	color: var(--bg-color);
+	background-color: var(--text-color);
 }
 
 .form__note {
-  display: none;
+	display: none;
 }
 
 @media screen and (max-width: 900px) {
-  /* TODO check the sizes if it needs activate flex-column  */
-  .forms__container {
-    /* flex-direction: column; */
-  }
-  .form__note {
-    display: block;
-    padding: 10px 0;
-  }
+	/* TODO check the sizes if it needs activate flex-column  */
+	.forms__container {
+		/* flex-direction: column; */
+	}
+	.form__note {
+		display: block;
+		padding: 10px 0;
+	}
 
-  .form__link {
-    margin-left: 10px;
-    font-weight: bold;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+	.form__link {
+		margin-left: 10px;
+		font-weight: bold;
+		text-decoration: underline;
+		cursor: pointer;
+	}
 
-  .forms__overlap {
-    display: none;
-  }
+	.forms__overlap {
+		display: none;
+	}
 
-  .form__display {
-    display: flex;
-  }
+	.form__display {
+		display: flex;
+	}
 
-  .form__hide {
-    display: none;
-  }
+	.form__hide {
+		display: none;
+	}
 }

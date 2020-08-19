@@ -15,13 +15,17 @@ const SignInBtn = document.querySelector('#SignIn-submit');
 const SignInLogin = document.querySelector('#SignIn-login');
 const SignInPassword = document.querySelector('#SignIn-password');
 
-/* SECTION form overlapping */
-formCover.addEventListener('click', () => {
+function changeCoverPosition() {
 	if (formCover.classList.contains('forms__overlap--left')) {
 		changeState(formCover, 'forms__overlap--left', 'forms__overlap--right');
 	} else {
 		changeState(formCover, 'forms__overlap--right', 'forms__overlap--left');
 	}
+}
+
+/* SECTION form overlapping */
+formCover.addEventListener('click', () => {
+	changeCoverPosition();
 });
 
 /* SECTION switching between 2 forms in  mobile version  */
@@ -42,7 +46,6 @@ SignUpLink.addEventListener('click', () => {
 /* SECTION  login password registration */
 regBtn.addEventListener('click', (e) => {
 	e.preventDefault();
-
 	try {
 		const users = {};
 		if (regLogin.value.trim() === '') {
@@ -65,6 +68,10 @@ regBtn.addEventListener('click', (e) => {
 			changeState(formSignUp, 'form__display', 'form__hide');
 			changeState(formSignIn, 'form__hide', 'form__display');
 		}
+		changeCoverPosition();
+		SignInLogin.focus();
+		regLogin.value = '';
+		regPassword.value = '';
 	} catch (err) {
 		// eslint-disable-next-line no-alert
 		alert(err.message);
