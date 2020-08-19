@@ -41,8 +41,8 @@
 }
 
 .card__start--added {
-	fill: yellow;
-	stroke: red;
+	fill: #ffd900;
+	stroke: #ffd900;
 }
 
 /* .card__button:hover {

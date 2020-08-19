@@ -9,8 +9,6 @@ import { getMap } from './helper/map.helper';
 import { Country } from './helper/class.helper';
 import { setFavorite } from './helper/storage.helper';
 
-// import '../style/style.css';
-
 /* SECTION hamburger menu */
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
@@ -31,7 +29,7 @@ const countriesCard = document.querySelector('.countries__card');
 const cardCloseBtn = document.querySelector('.card__close');
 const cardStarBtn = document.querySelector('.card__star');
 const state = {
-	favCountries: JSON.parse(window.localStorage.getItem('favorites')),
+	favCountries: JSON.parse(window.localStorage.getItem('favorites')) || [],
 };
 
 const render = async () => {
@@ -50,7 +48,7 @@ const render = async () => {
 		selected = matchName(selected);
 
 		const countryData = await doGet(`${REST_URL.byName}${selected}`);
-		console.log(countryData);
+
 		state.country = new Country(
 			countryData[0].name,
 			countryData[0].alpha3Code,
