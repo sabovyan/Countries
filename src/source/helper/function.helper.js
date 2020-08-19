@@ -27,7 +27,7 @@ export function formatNumber(number) {
 	} else {
 		let num = Math.round(number / 1000);
 		if (num <= 1000) {
-			res = `about one thousand`;
+			res = 'about one thousand';
 		}
 		res = `${Math.round(number / 1000)} thousand`;
 	}

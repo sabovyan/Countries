@@ -33,10 +33,22 @@
 	background-color: transparent;
 	cursor: pointer;
 }
-
-.card__button:hover {
-	fill: red;
+.card__star {
+	width: 55px;
+	fill: transparent;
+	stroke: var(--text-color);
+	stroke-width: 2px;
 }
+
+.card__start--added {
+	fill: yellow;
+	stroke: red;
+}
+
+/* .card__button:hover {
+	fill: red;
+	stroke: red;
+} */
 
 .card__body {
 	padding: 1rem;

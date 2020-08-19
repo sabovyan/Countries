@@ -6,6 +6,8 @@ import { changeState, matchName } from './helper/function.helper';
 import { createCard } from './helper/html.helper';
 import { doGet } from './helper/request.helper';
 import { getMap } from './helper/map.helper';
+import { Country } from './helper/class.helper';
+import { setFavorite } from './helper/storage.helper';
 
 // import '../style/style.css';
 
@@ -27,6 +29,10 @@ const cardContext = document.querySelector('.countries__card-inner');
 const cardBody = document.querySelector('.card__body');
 const countriesCard = document.querySelector('.countries__card');
 const cardCloseBtn = document.querySelector('.card__close');
+const cardStarBtn = document.querySelector('.card__star');
+const state = {
+	favCountries: JSON.parse(window.localStorage.getItem('favorites')),
+};
 
 const render = async () => {
 	const worldMap = await json(MAP_URL);
@@ -38,34 +44,47 @@ const render = async () => {
 		cardBody.innerHTML = '';
 		let selected = d.properties.name.toLowerCase();
 
-		// TODO create country name checking function
-
 		// TODO delete console log
 		console.log(selected);
 
-		/* if (selected === 'dem. rep. congo') {
-			selected = 'DR Congo';
-		}
-		if (selected === 'central african rep.') {
-			selected = 'Central African Republic';
-		} */
 		selected = matchName(selected);
 
-		const json = await doGet(`${REST_URL.byName}${selected}`);
-		console.log(json);
-
-		createCard(json, cardBody);
+		const countryData = await doGet(`${REST_URL.byName}${selected}`);
+		console.log(countryData);
+		state.country = new Country(
+			countryData[0].name,
+			countryData[0].alpha3Code,
+			countryData[0].flag,
+			countryData[0].population,
+			countryData[0].area,
+			countryData[0].capital,
+			countryData[0].languages[0].nativeName
+		);
+		createCard(state.country, cardBody);
+		if (state.favCountries.includes(state.country.alpha3Code)) {
+			cardStarBtn.classList.add('card__start--added');
+		}
 		countriesCard.style.display = 'flex';
 	});
 };
 
 render();
 
+const cardStarPolygon = document.querySelector('.card__star-polygon');
 countriesCard.addEventListener('click', (e) => {
-	if (e.target === cardCloseBtn) {
+	if (e.target === countriesCard) {
+		cardStarBtn.classList.remove('card__start--added');
 		countriesCard.style.display = 'none';
 	}
-	if (e.target === countriesCard) {
+	if (
+		e.target === cardCloseBtn ||
+		e.target === cardCloseBtn.querySelector('path')
+	) {
+		cardStarBtn.classList.remove('card__start--added');
 		countriesCard.style.display = 'none';
+	}
+
+	if (e.target === cardStarBtn || e.target === cardStarPolygon) {
+		state.favCountries = setFavorite(cardStarBtn, state, state.country);
 	}
 });

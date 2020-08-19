@@ -3,9 +3,9 @@
  * @returns {object} with basic information about country
  */
 export class Country {
-	constructor(name, numericCode, flag, population, area, capital, language) {
+	constructor(name, alpha3Code, flag, population, area, capital, language) {
 		this.flag = flag;
-		this.numericCode = numericCode;
+		this.alpha3Code = alpha3Code;
 		this.details = {
 			name,
 			population,

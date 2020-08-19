@@ -7,23 +7,28 @@ const navTheme = document.querySelector('.nav__theme');
 const navLogo = document.querySelector('.nav__logo');
 
 const changeThemeState = () => {
-	const textColor = localStorage.getItem('textColor');
-	const bgColor = localStorage.getItem('bgColor');
+	const textColor = localStorage.getItem('textColor') || '#efefef';
+	const bgColor = localStorage.getItem('bgColor') || '';
 	document.documentElement.style.setProperty('--text-color', textColor);
 	document.documentElement.style.setProperty('--bg-color', bgColor);
 
-	if (textColor.trim() === '#343434') {
-		changeState(themeIndicator, themeState.theme.dark, themeState.theme.light);
-
-		changeState(themeSlider, themeState.slider.dark, themeState.slider.light);
-
-		changeState(navLogo, themeState.logo.dark, themeState.logo.light);
-	} else {
+	if (textColor.trim() === '#efefef') {
+		changeState(themeSlider, themeState.slider.light, themeState.slider.dark);
+		document.addEventListener('DOMContentLoaded', () => {
+			themeSlider.style.transition = 'none';
+			setTimeout(() => {
+				themeSlider.style.transition = 'all 0.4s';
+			}, 1000);
+		});
 		changeState(themeIndicator, themeState.theme.light, themeState.theme.dark);
 
-		changeState(themeSlider, themeState.slider.light, themeState.slider.dark);
-
 		changeState(navLogo, themeState.logo.light, themeState.logo.dark);
+	} else {
+		changeState(themeSlider, themeState.slider.dark, themeState.slider.light);
+
+		changeState(themeIndicator, themeState.theme.dark, themeState.theme.light);
+
+		changeState(navLogo, themeState.logo.dark, themeState.logo.light);
 	}
 };
 changeThemeState();

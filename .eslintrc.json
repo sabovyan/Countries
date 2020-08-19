@@ -3,20 +3,15 @@
 		"browser": true,
 		"es2020": true
 	},
-	"extends": [
-		"airbnb-base"
-	],
+	"extends": ["airbnb-base"],
 	"parserOptions": {
 		"ecmaVersion": 11,
 		"sourceType": "module"
 	},
 	"rules": {
-		"indent": [
-			2,
-			"tab"
-		],
+		"indent": [2, "tab"],
 		"no-tabs": 0,
 		"linebreak-style": 0,
-		"no-restricted-globals": 0;
+		"import/prefer-default-export": 0
 	}
 }
