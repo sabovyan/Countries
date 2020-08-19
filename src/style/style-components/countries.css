@@ -31,25 +31,6 @@
 	margin: 2rem;
 }
 
-/* SECTION table */
-
-.countries__search-container {
-	width: 100%;
-	align-items: flex-start;
-}
-
-.countries__search {
-	min-width: 100px;
-	width: 300px;
-	margin: var(--nav-margin);
-	padding: 5px 10px;
-	font-size: 1.2rem;
-	letter-spacing: 2px;
-	border: 1px solid var(--text-color);
-	outline: none;
-	border-radius: 3px;
-}
-
 /* SECTION map */
 #countriesMap {
 	margin: 20px;

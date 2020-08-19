@@ -28,9 +28,17 @@ export const themeState = {
 };
 
 export const MAP_URL =
-	'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json';
+	'https://unpkg.com/world-atlas@2.0.2/countries-110m.json';
 
 export const REST_URL = {
 	byName: 'https://restcountries.eu/rest/v2/name/',
 	all: 'https://restcountries.eu/rest/v2/all',
+};
+
+export const state = {
+	favCountries: JSON.parse(window.localStorage.getItem('favorites')) || [],
+	countryNav: JSON.parse(window.localStorage.getItem('countryNav')) || {
+		table: false,
+		map: true,
+	},
 };

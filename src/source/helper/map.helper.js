@@ -1,4 +1,4 @@
-import { select, geoPath, geoMercator, zoom, event } from 'd3';
+import { geoPath, geoMercator, zoom, event } from 'd3';
 
 /**
  *

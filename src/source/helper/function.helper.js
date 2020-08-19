@@ -51,3 +51,12 @@ export function matchName(selected) {
 
 	return res;
 }
+
+/**
+ *
+ * @param {number} limit
+ * @returns {number} returns random number based on the limit
+ */
+export function randomNumber(limit) {
+	return Math.floor(Math.random() * limit) + 1;
+}

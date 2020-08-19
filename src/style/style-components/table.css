@@ -1,0 +1,22 @@
+/* SECTION table */
+.countries__section-table {
+	display: flex;
+	flex-direction: column;
+}
+
+.countries__search-container {
+	width: 100%;
+	align-items: flex-start;
+}
+
+.countries__search {
+	min-width: 100px;
+	width: 300px;
+	margin: var(--nav-margin);
+	padding: 5px 10px;
+	font-size: 1.2rem;
+	letter-spacing: 2px;
+	border: 1px solid var(--text-color);
+	outline: none;
+	border-radius: 3px;
+}

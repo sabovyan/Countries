@@ -34,3 +34,33 @@ export function createCard(country, body) {
 	body.append(details);
 	return body;
 }
+
+export function CreateCountryHTML({ flag, name }, width) {
+	// img and container
+	const container = document.createElement('div');
+	const img = document.createElement('img');
+	img.src = flag;
+	img.width = width;
+	container.classList.add('country__container');
+	img.classList.add('country__image');
+
+	// bottom line
+	const bottomLine = document.createElement('div');
+	bottomLine.classList.add('country__bottomLine');
+
+	// name
+	const title = document.createElement('p');
+	title.classList.add('country__title');
+	title.textContent = name;
+
+	//  star
+	const star = document.createElement('svg');
+
+	// append to bottom line
+
+	// region
+	container.append(img);
+	container.append(bottomLine);
+
+	return container;
+}
