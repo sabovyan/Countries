@@ -10,9 +10,7 @@ export function getMap(svg, countries) {
 	const height = svg.attr('height');
 	const sphere = { type: 'Sphere' };
 
-	const projection = geoMercator()
-		.scale(155)
-		.translate([width / 2, height / 2]);
+	const projection = geoMercator();
 	const pathGenerator = geoPath().projection(projection);
 
 	const g = svg.append('g');

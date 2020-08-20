@@ -1,0 +1,41 @@
+/* SECTION map */
+#countriesMap {
+	margin: 20px;
+	border: 1px solid var(--text-color);
+}
+.world {
+	fill: var(--text-color);
+}
+.country {
+	stroke: var(--text-color);
+	fill: var(--bg-color);
+	stroke-width: 0.1;
+}
+.country:hover {
+	fill: var(--sec-color);
+}
+@media only screen and (max-width: 600px) {
+	#countriesMap {
+		width: 420px;
+	}
+}
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+	#countriesMap {
+		width: 550px;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+	#countriesMap {
+		width: 650px;
+	}
+}
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+	#countriesMap {
+		width: 850px;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	#countriesMap {
+		width: 850px;
+	}
+}

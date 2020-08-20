@@ -4,7 +4,7 @@
 @import './style-components/countries.css';
 @import './style-components/card.css';
 @import './style-components/table.css';
-
+@import './style-components/map.css';
 * {
 	padding: 0;
 	margin: 0;

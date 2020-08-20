@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import { select, json } from 'd3';
 import { feature } from 'topojson';
 import { MAP_URL, REST_URL, state } from '../constants/constants';
-import { matchName } from './function.helper';
+import { matchName, randomNumber } from './function.helper';
 import { createCard, CreateCountryHTML } from './html.helper';
 import { doGet } from './request.helper';
 import { getMap } from './map.helper';
@@ -56,7 +56,9 @@ export async function renderTable() {
 	console.log(restAllCountries);
 
 	restAllCountries.forEach((country) => {
-		tableContainer.append(CreateCountryHTML(country, 30));
+		const w = randomNumber(3);
+		const h = randomNumber(3);
+		tableContainer.append(CreateCountryHTML(country));
 		tableContainer.style.display = 'grid';
 	});
 }

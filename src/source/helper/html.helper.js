@@ -37,14 +37,16 @@ export function createCard(country, body) {
 	return body;
 }
 
-export function CreateCountryHTML({ flag, name, region }, width) {
+export function CreateCountryHTML({ flag, name, region }) {
 	// img and container
 	const container = document.createElement('div');
-	container.classList.add('country__container');
-
+	/* container.classList.add('country__container');
+	container.classList.add(``);
+	container.classList.add(``); */
+	container.className = 'country__container';
 	const img = document.createElement('img');
 	img.classList.add('country__image');
-	img.width = width;
+	img.width = 30;
 	img.src = flag;
 
 	// bottom line

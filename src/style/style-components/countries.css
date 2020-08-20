@@ -30,20 +30,3 @@
 	align-items: center;
 	margin: 2rem;
 }
-
-/* SECTION map */
-#countriesMap {
-	margin: 20px;
-	border: 1px solid var(--text-color);
-}
-.world {
-	fill: var(--text-color);
-}
-.country {
-	stroke: var(--text-color);
-	fill: var(--bg-color);
-	stroke-width: 0.1;
-}
-.country:hover {
-	fill: var(--sec-color);
-}
