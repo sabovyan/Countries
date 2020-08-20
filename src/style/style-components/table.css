@@ -1,12 +1,7 @@
 /* SECTION table */
-.countries__section-table {
-	display: flex;
-	flex-direction: column;
-}
 
 .countries__search-container {
-	width: 100%;
-	align-items: flex-start;
+	display: block;
 }
 
 .countries__search {

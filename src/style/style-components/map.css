@@ -1,6 +1,13 @@
 /* SECTION map */
+.countries__section.countries__section-map {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 #countriesMap {
-	margin: 20px;
+	margin: 0 auto;
 	border: 1px solid var(--text-color);
 }
 .world {

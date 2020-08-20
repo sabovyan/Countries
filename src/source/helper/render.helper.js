@@ -49,16 +49,21 @@ export async function renderMap() {
 	});
 }
 
+const searchInput = document.querySelector('#search');
 export async function renderTable() {
 	tableContainer.innerHTML = '';
-	const restAllCountries = await doGet(REST_URL.all);
-
-	// console.log(restAllCountries);
-
-	restAllCountries.map((countryData) => {
+	let result = null;
+	if (searchInput.value.trim() === '') {
+		result = await doGet(REST_URL.all);
+		result.map(
+			(countryData) =>
+				(state.countryCode[countryData.name] = countryData.alpha3Code)
+		);
+	} else {
+		result = await doGet(`${REST_URL.byName}${searchInput.value}`);
+	}
+	result.map((countryData) => {
 		const countryHTML = CreateCountryHTML(countryData, state);
-
-		state.countryCode[countryData.name] = countryData.alpha3Code;
 		tableContainer.append(countryHTML);
 
 		tableContainer.style.display = 'grid';
@@ -79,3 +84,7 @@ export async function renderTable() {
 		});
 	});
 }
+
+searchInput.addEventListener('input', async () => {
+	renderTable();
+});

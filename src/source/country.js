@@ -1,8 +1,6 @@
 import 'babel-polyfill';
-import { menuState, REST_URL, state } from './constants/constants';
+import { menuState, state } from './constants/constants';
 import { changeState } from './helper/function.helper';
-import { doGet } from './helper/request.helper';
-import { Country } from './helper/class.helper';
 import { setFavorite } from './helper/storage.helper';
 import { renderMap, renderTable } from './helper/render.helper';
 
@@ -41,7 +39,7 @@ const tableContainer = document.querySelector('.table__container');
 
 function displayMap() {
 	tableSection.style.display = 'none';
-	mapSection.style.display = 'block';
+	mapSection.style.display = 'flex';
 	countriesNavTable.classList.remove('countries__item--active');
 	countriesNavMap.classList.add('countries__item--active');
 }
