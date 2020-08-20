@@ -140,7 +140,10 @@
 
     <section class="countries__section countries__section-table">
       <div class="countries__search-container">
-        <input type="text" id="search" class="countries__search" autocomplete="off" />
+        <input list="countries__search-names" type="text" id="search" class="countries__search" autocomplete="off" />
+        <datalist id="countries__search-names">
+
+        </datalist>
       </div>
       <div class="table__container"></div>
     </section>

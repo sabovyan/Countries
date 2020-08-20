@@ -51,7 +51,7 @@ regBtn.addEventListener('click', (e) => {
 		if (regLogin.value.trim() === '') {
 			throw new Error('Your Login should not be empty');
 		} else if (localStorage.getItem(regLogin.value.trim())) {
-			throw new Error('this name is already is in use');
+			throw new Error('this name is already in use');
 		} else if (regPassword.value.trim().length < 6) {
 			throw new Error('Your password should not be less than 5 characters');
 		}
@@ -91,10 +91,16 @@ SignInBtn.addEventListener('click', (e) => {
 		} else {
 			if (!users) {
 				changeCoverPosition();
+				regLogin.focus();
+				SignInLogin.value = '';
+				SignInPassword.value = '';
 				throw new Error('there is no user with this name and password');
 			}
 			if (!users[login]) {
 				changeCoverPosition();
+				regLogin.focus();
+				SignInLogin.value = '';
+				SignInPassword.value = '';
 				throw new Error('there is no user with this name');
 			}
 			if (users[login] !== password) {
