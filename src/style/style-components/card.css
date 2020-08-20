@@ -41,8 +41,8 @@
 }
 
 .card__start--added {
-	fill: #ffd900;
-	stroke: #ffd900;
+	fill: var(--sec-color);
+	stroke: var(--sec-color);
 }
 
 .card__body {

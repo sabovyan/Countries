@@ -2,8 +2,9 @@ import 'babel-polyfill';
 import { select, json } from 'd3';
 import { feature } from 'topojson';
 import { MAP_URL, REST_URL, state } from '../constants/constants';
-import { matchName, randomNumber } from './function.helper';
 import { createCard, CreateCountryHTML } from './html.helper';
+import { matchName } from './function.helper';
+import { setFavorite } from './storage.helper';
 import { doGet } from './request.helper';
 import { getMap } from './map.helper';
 import { Country } from './class.helper';
@@ -29,7 +30,7 @@ export async function renderMap() {
 		selected = matchName(selected);
 
 		const countryData = await doGet(`${REST_URL.byName}${selected}`);
-		/* TODO create card call function */
+
 		state.country = new Country(
 			countryData[0].name,
 			countryData[0].alpha3Code,
@@ -51,14 +52,30 @@ export async function renderMap() {
 export async function renderTable() {
 	tableContainer.innerHTML = '';
 	const restAllCountries = await doGet(REST_URL.all);
-	state.quantity = restAllCountries.length;
 
-	console.log(restAllCountries);
+	// console.log(restAllCountries);
 
-	restAllCountries.forEach((country) => {
-		const w = randomNumber(3);
-		const h = randomNumber(3);
-		tableContainer.append(CreateCountryHTML(country));
+	restAllCountries.map((countryData) => {
+		const countryHTML = CreateCountryHTML(countryData, state);
+
+		state.countryCode[countryData.name] = countryData.alpha3Code;
+		tableContainer.append(countryHTML);
+
 		tableContainer.style.display = 'grid';
+		return countryHTML;
+	});
+
+	const starButtons = document.querySelectorAll('.country__star');
+
+	starButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const alphaCode = button.nextSibling.innerText;
+			state.favCountries = setFavorite(
+				button,
+				'country__star--added',
+				state.favCountries,
+				state.countryCode[alphaCode]
+			);
+		});
 	});
 }

@@ -81,10 +81,15 @@
 	background: transparent;
 	width: 25px;
 	margin: 10px;
-
-	fill: var(--text-color);
 	align-self: flex-end;
+	cursor: pointer;
+	fill: var(--text-color);
 }
+
+.country__star--added {
+	fill: var(--sec-color);
+}
+
 .country__title {
 	background: transparent;
 	color: var(--text-color);

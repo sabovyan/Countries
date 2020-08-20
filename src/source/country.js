@@ -24,6 +24,7 @@ navToggler.addEventListener('click', () => {
 const countriesCard = document.querySelector('.countries__card');
 const cardCloseBtn = document.querySelector('.card__close');
 const cardStarBtn = document.querySelector('.card__star');
+const cardStarPolygon = document.querySelector('.card__star-polygon');
 
 /* navigation */
 const countriesNavMap = document.querySelector('.countries__item-map');
@@ -54,18 +55,17 @@ function displayTable() {
 
 const render = async () => {
 	if (state.countryNav.map === true) {
-		displayMap();
 		renderMap();
+		displayMap();
 	}
 	if (state.countryNav.table === true) {
-		displayTable();
 		renderTable();
+		displayTable();
 	}
 };
 
 render();
 
-const cardStarPolygon = document.querySelector('.card__star-polygon');
 countriesCard.addEventListener('click', (e) => {
 	if (e.target === countriesCard) {
 		cardStarBtn.classList.remove('card__start--added');
@@ -80,7 +80,12 @@ countriesCard.addEventListener('click', (e) => {
 	}
 
 	if (e.target === cardStarBtn || e.target === cardStarPolygon) {
-		state.favCountries = setFavorite(cardStarBtn, state, state.country);
+		state.favCountries = setFavorite(
+			cardStarBtn,
+			'card__start--added',
+			state.favCountries,
+			state.country.alpha3Code
+		);
 	}
 });
 

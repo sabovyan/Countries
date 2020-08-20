@@ -1,5 +1,6 @@
-import { formatNumber } from './function.helper';
+/* eslint-disable comma-dangle */
 import { select } from 'd3';
+import { formatNumber } from './function.helper';
 
 /**
  * @description createCard function creates a separate card to display country's details
@@ -36,42 +37,46 @@ export function createCard(country, body) {
 	body.append(details);
 	return body;
 }
-
-export function CreateCountryHTML({ flag, name, region }) {
-	// img and container
+/**
+ *
+ * @param {object} param0 an object that contains all the information for about country
+ * @param {object} param1 the state object that contains favorite countries
+ * @returns {HTMLCollection} with all the necessary data about country
+ */
+export function CreateCountryHTML(
+	{ flag, name, region, alpha3Code },
+	{ favCountries }
+) {
 	const container = document.createElement('div');
-	/* container.classList.add('country__container');
-	container.classList.add(``);
-	container.classList.add(``); */
 	container.className = 'country__container';
 	const img = document.createElement('img');
 	img.classList.add('country__image');
 	img.width = 30;
 	img.src = flag;
 
-	// bottom line
 	const bottomLine = document.createElement('div');
 	bottomLine.classList.add('country__bottomLine');
 
-	// name
 	const title = document.createElement('p');
 	title.classList.add('country__title');
 	title.textContent = name;
 
-	// region
 	const reg = document.createElement('p');
 	reg.classList.add('country__region');
 	reg.textContent = region;
 
-	// append to bottom line
-	// append star
 	select(bottomLine)
 		.append('svg')
 		.attr('width', '20')
 		.attr('viewBox', '0 0 90 100')
 		.attr('x', '0px')
 		.attr('y', '0px')
-		.attr('class', 'country__star')
+		.attr('class', () => {
+			if (favCountries.includes(alpha3Code)) {
+				return 'country__star country__star--added';
+			}
+			return 'country__star';
+		})
 		.append('polygon')
 		.attr('class', 'country__star-polygon')
 		.attr('fill-rule', 'nonezero')
@@ -83,7 +88,6 @@ export function CreateCountryHTML({ flag, name, region }) {
 
 	bottomLine.append(reg);
 
-	// append all
 	container.append(img);
 	container.append(bottomLine);
 

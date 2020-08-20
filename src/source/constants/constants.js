@@ -41,4 +41,5 @@ export const state = {
 		table: false,
 		map: true,
 	},
+	countryCode: {},
 };
