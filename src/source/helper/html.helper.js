@@ -1,5 +1,6 @@
 import { formatNumber } from './function.helper';
-import { svg, select } from 'd3';
+import { select } from 'd3';
+
 /**
  * @description createCard function creates a separate card to display country's details
  * @param {object} country
@@ -36,14 +37,15 @@ export function createCard(country, body) {
 	return body;
 }
 
-export function CreateCountryHTML({ flag, name }, width) {
+export function CreateCountryHTML({ flag, name, region }, width) {
 	// img and container
 	const container = document.createElement('div');
-	const img = document.createElement('img');
-	img.src = flag;
-	img.width = width;
 	container.classList.add('country__container');
+
+	const img = document.createElement('img');
 	img.classList.add('country__image');
+	img.width = width;
+	img.src = flag;
 
 	// bottom line
 	const bottomLine = document.createElement('div');
@@ -54,13 +56,33 @@ export function CreateCountryHTML({ flag, name }, width) {
 	title.classList.add('country__title');
 	title.textContent = name;
 
-	//  star
-	const star = document.createElement('svg');
-	svg// append to bottom line
-
 	// region
-	.container
-		.append(img);
+	const reg = document.createElement('p');
+	reg.classList.add('country__region');
+	reg.textContent = region;
+
+	// append to bottom line
+	// append star
+	select(bottomLine)
+		.append('svg')
+		.attr('width', '20')
+		.attr('viewBox', '0 0 90 100')
+		.attr('x', '0px')
+		.attr('y', '0px')
+		.attr('class', 'country__star')
+		.append('polygon')
+		.attr('class', 'country__star-polygon')
+		.attr('fill-rule', 'nonezero')
+		.attr('points', '50,0 21,90 98,35 2,35 79,90')
+		.append('title')
+		.text('Add to your favorites');
+
+	bottomLine.append(title);
+
+	bottomLine.append(reg);
+
+	// append all
+	container.append(img);
 	container.append(bottomLine);
 
 	return container;

@@ -18,7 +18,7 @@ const changeThemeState = () => {
 			themeSlider.style.transition = 'none';
 			setTimeout(() => {
 				themeSlider.style.transition = 'all 0.4s';
-			}, 1000);
+			}, 0);
 		});
 		changeState(themeIndicator, themeState.theme.light, themeState.theme.dark);
 
@@ -32,6 +32,7 @@ const changeThemeState = () => {
 	}
 };
 changeThemeState();
+
 navTheme.addEventListener('click', () => {
 	themeState.bgColor = getComputedStyle(
 		document.documentElement

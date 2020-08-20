@@ -3,7 +3,7 @@ import { select, json } from 'd3';
 import { feature } from 'topojson';
 import { MAP_URL, REST_URL, state } from '../constants/constants';
 import { matchName } from './function.helper';
-import { createCard } from './html.helper';
+import { createCard, CreateCountryHTML } from './html.helper';
 import { doGet } from './request.helper';
 import { getMap } from './map.helper';
 import { Country } from './class.helper';
@@ -52,13 +52,11 @@ export async function renderTable() {
 	tableContainer.innerHTML = '';
 	const restAllCountries = await doGet(REST_URL.all);
 	state.quantity = restAllCountries.length;
-	console.log(state.quantity);
+
+	console.log(restAllCountries);
 
 	restAllCountries.forEach((country) => {
-		const img = document.createElement('img');
-		const countryArray = new Array(state.quantity).fill(state.quantity);
-		img.src = country.flag;
-		img.width = 40;
-		tableContainer.append(img);
+		tableContainer.append(CreateCountryHTML(country, 30));
+		tableContainer.style.display = 'grid';
 	});
 }
