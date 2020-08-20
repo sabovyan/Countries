@@ -89,7 +89,12 @@ SignInBtn.addEventListener('click', (e) => {
 		if (login.trim() === '' || password.trim() === '') {
 			throw new Error('please fill in the inputs!');
 		} else {
+			if (!users) {
+				changeCoverPosition();
+				throw new Error('there is no user with this name and password');
+			}
 			if (!users[login]) {
+				changeCoverPosition();
 				throw new Error('there is no user with this name');
 			}
 			if (users[login] !== password) {
@@ -101,6 +106,7 @@ SignInBtn.addEventListener('click', (e) => {
 		}
 	} catch (err) {
 		// eslint-disable-next-line no-alert
+		console.log(err);
 		alert(err.message);
 	}
 });
