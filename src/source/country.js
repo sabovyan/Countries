@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import { menuState, state } from './constants/constants';
-import { changeState } from './helper/function.helper';
+import { changeState, debounce } from './helper/function.helper';
 import { setFavorite } from './helper/storage.helper';
 import { renderMap, renderTable } from './helper/render.helper';
 
@@ -88,6 +88,7 @@ countriesCard.addEventListener('click', (e) => {
 });
 
 /* SECTION Countries inner navigation */
+const searchInput = document.querySelector('#search');
 
 CountriesNav.forEach((navItem) => {
 	navItem.addEventListener('click', (e) => {
@@ -96,6 +97,7 @@ CountriesNav.forEach((navItem) => {
 			state.countryNav.map = true;
 			state.countryNav.table = false;
 			storage.setItem('countryNav', JSON.stringify(state.countryNav));
+			searchInput.value = '';
 		}
 		if (e.target === countriesNavTable) {
 			displayTable();
@@ -106,3 +108,6 @@ CountriesNav.forEach((navItem) => {
 		render();
 	});
 });
+
+const search = debounce(renderTable, 500);
+searchInput.addEventListener('input', search);

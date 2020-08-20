@@ -19,7 +19,6 @@ export async function renderMap() {
 	svg.selectAll('*').remove();
 	const worldMap = await json(MAP_URL);
 	const countriesMap = feature(worldMap, worldMap.objects.countries);
-
 	const g = getMap(svg, countriesMap);
 	g.on('click', async (d) => {
 		let selected = d.properties.name.toLowerCase();
@@ -48,21 +47,31 @@ export async function renderMap() {
 		countriesCard.style.display = 'flex';
 	});
 }
-
+const alertMessage = document.querySelector('.search__alert');
 const searchInput = document.querySelector('#search');
+
 export async function renderTable() {
 	tableContainer.innerHTML = '';
 	let result = null;
 	if (searchInput.value.trim() === '') {
 		result = await doGet(REST_URL.all);
-		result.map(
+
+		result.forEach(
+			// eslint-disable-next-line no-return-assign
 			(countryData) =>
 				(state.countryCode[countryData.name] = countryData.alpha3Code)
 		);
 	} else {
-		result = await doGet(`${REST_URL.byName}${searchInput.value}`);
+		try {
+			result = await doGet(`${REST_URL.byName}${searchInput.value}`);
+			if (result) {
+				throw new Error('Provided input is incorrect');
+			}
+		} catch (err) {
+			console.error(err.message);
+		}
 	}
-	result.map((countryData) => {
+	result.forEach((countryData) => {
 		const countryHTML = CreateCountryHTML(countryData, state);
 		tableContainer.append(countryHTML);
 
@@ -84,7 +93,3 @@ export async function renderTable() {
 		});
 	});
 }
-
-searchInput.addEventListener('input', async () => {
-	renderTable();
-});
