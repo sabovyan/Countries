@@ -5,6 +5,7 @@
 @import './style-components/card.css';
 @import './style-components/table.css';
 @import './style-components/map.css';
+@import './style-components/favorites.css';
 * {
 	padding: 0;
 	margin: 0;
