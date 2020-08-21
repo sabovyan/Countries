@@ -3,16 +3,28 @@ import { select } from 'd3';
 import { formatNumber } from './function.helper';
 
 /**
+ *
+ * @param {string} className class name for image
+ * @param {number} width to set default with for image
+ * @param {string} src a url for image
+ * @returns {HTMLElement} image tag
+ */
+const createImage = (className, width, src) => {
+	const img = document.createElement('img');
+	img.setAttribute('class', `${className}`);
+	img.width = width;
+	img.src = src;
+	return img;
+};
+
+/**
  * @description createCard function creates a separate card to display country's details
  * @param {object} country
  * @param {HTMLElement} body
  * @returns {HTMLCollection} body argument as an html collection
  */
 export function createCard(country, body) {
-	const img = document.createElement('img');
-	img.setAttribute('class', 'card__image');
-	img.width = 100;
-	img.src = country.flag;
+	const img = createImage('card__image', 100, country.flag);
 
 	const details = document.createElement('ul');
 	details.setAttribute('class', 'card__details');
@@ -49,10 +61,7 @@ export function CreateCountryHTML(
 ) {
 	const container = document.createElement('div');
 	container.className = 'country__container';
-	const img = document.createElement('img');
-	img.classList.add('country__image');
-	img.width = 30;
-	img.src = flag;
+	const img = createImage('country__image', 30, flag);
 
 	const bottomLine = document.createElement('div');
 	bottomLine.classList.add('country__bottomLine');
