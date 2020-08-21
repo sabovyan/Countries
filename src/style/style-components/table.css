@@ -28,7 +28,16 @@
 .country__container {
 	position: relative;
 	overflow: hidden;
+	opacity: 0;
+	transform: scale(0);
+	transition: opacity 0.2s ease-in, transform 0.2s ease-out;
 }
+
+.country__container.appear {
+	opacity: 1;
+	transform: scale(1);
+}
+
 .country__image {
 	width: 100%;
 }

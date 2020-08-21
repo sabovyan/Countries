@@ -46,19 +46,24 @@ SignUpLink.addEventListener('click', () => {
 /* SECTION  login password registration */
 regBtn.addEventListener('click', (e) => {
 	e.preventDefault();
+	const storage = window.localStorage;
+	const storedUsers = JSON.parse(storage.getItem('users'));
 	try {
 		const users = {};
 		if (regLogin.value.trim() === '') {
 			throw new Error('Your Login should not be empty');
-		} else if (localStorage.getItem(regLogin.value.trim())) {
+		} else if (regLogin.value.trim().length < 5) {
+			throw new Error('Your Login should not be less than 5 characters');
+		} else if (storedUsers[regLogin.value.trim()]) {
 			throw new Error('this name is already in use');
-		} else if (regPassword.value.trim().length < 6) {
+		} else if (regPassword.value.trim().length < 5) {
 			throw new Error('Your password should not be less than 5 characters');
+		} else {
+			const login = regLogin.value.trim();
+			const password = regPassword.value;
+			users[login] = password;
+			localStorage.setItem('users', JSON.stringify(users));
 		}
-		const login = regLogin.value.trim();
-		const password = regPassword.value;
-		users[login] = password;
-		localStorage.setItem('users', JSON.stringify(users));
 
 		// eslint-disable-next-line no-alert
 		const registered = confirm(
@@ -78,7 +83,7 @@ regBtn.addEventListener('click', (e) => {
 	}
 });
 
-/* SECTION  login password sign in */
+/* SECTION  login */
 SignInBtn.addEventListener('click', (e) => {
 	e.preventDefault();
 	const users = JSON.parse(localStorage.getItem('users'));
@@ -112,7 +117,6 @@ SignInBtn.addEventListener('click', (e) => {
 		}
 	} catch (err) {
 		// eslint-disable-next-line no-alert
-		console.log(err);
 		alert(err.message);
 	}
 });

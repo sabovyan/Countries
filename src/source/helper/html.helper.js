@@ -93,3 +93,24 @@ export function CreateCountryHTML(
 
 	return container;
 }
+
+/**
+ * @type {object} options for animations
+ */
+const appearOptions = {
+	threshold: 0,
+	rootMargin: '0px 0px -100px 0px',
+};
+
+export const appearOnScroll = new IntersectionObserver(
+	(entries, appearOnScroll) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) {
+				return;
+			}
+			entry.target.classList.add('appear');
+			appearOnScroll.unobserve(entry.target);
+		});
+	},
+	appearOptions
+);

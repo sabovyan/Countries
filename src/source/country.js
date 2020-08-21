@@ -8,6 +8,9 @@ import { renderMap, renderTable } from './helper/render.helper';
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
 
+/* SECTION table */
+const searchInput = document.querySelector('#search');
+
 navToggler.addEventListener('click', () => {
 	if (navToggler.classList.contains('nav__toggler--close')) {
 		changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
@@ -33,9 +36,6 @@ const tableSection = document.querySelector('.countries__section-table');
 
 /* storage */
 const storage = window.localStorage;
-
-/* table */
-const tableContainer = document.querySelector('.table__container');
 
 function displayMap() {
 	tableSection.style.display = 'none';
@@ -88,7 +88,6 @@ countriesCard.addEventListener('click', (e) => {
 });
 
 /* SECTION Countries inner navigation */
-const searchInput = document.querySelector('#search');
 
 CountriesNav.forEach((navItem) => {
 	navItem.addEventListener('click', (e) => {
@@ -109,5 +108,5 @@ CountriesNav.forEach((navItem) => {
 	});
 });
 
-const search = debounce(renderTable, 500);
+const search = debounce(renderTable, 700);
 searchInput.addEventListener('input', search);

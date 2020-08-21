@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import { select, json } from 'd3';
 import { feature } from 'topojson';
 import { MAP_URL, REST_URL, state } from '../constants/constants';
-import { createCard, CreateCountryHTML } from './html.helper';
+import { createCard, CreateCountryHTML, appearOnScroll } from './html.helper';
 import { matchName } from './function.helper';
 import { setFavorite } from './storage.helper';
 import { doGet } from './request.helper';
@@ -47,7 +47,7 @@ export async function renderMap() {
 		countriesCard.style.display = 'flex';
 	});
 }
-const alertMessage = document.querySelector('.search__alert');
+
 const searchInput = document.querySelector('#search');
 
 export async function renderTable() {
@@ -76,11 +76,11 @@ export async function renderTable() {
 		tableContainer.append(countryHTML);
 
 		tableContainer.style.display = 'grid';
+		appearOnScroll.observe(countryHTML);
 		return countryHTML;
 	});
 
 	const starButtons = document.querySelectorAll('.country__star');
-
 	starButtons.forEach((button) => {
 		button.addEventListener('click', () => {
 			const alphaCode = button.nextSibling.innerText;
