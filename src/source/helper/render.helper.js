@@ -9,7 +9,9 @@ import { doGet } from './request.helper';
 import { getMap } from './map.helper';
 import { Country } from './class.helper';
 
-const svg = select('#countriesMap');
+const svg = select('.countries__section-map')
+	.append('svg')
+	.attr('id', '#countriesMap');
 const countriesCard = document.querySelector('.countries__card');
 const cardStarBtn = document.querySelector('.card__star');
 const cardBody = document.querySelector('.card__body');
@@ -23,6 +25,8 @@ export async function renderMap() {
 	g.on('click', async (d) => {
 		let selected = d.properties.name.toLowerCase();
 		selected = matchName(selected);
+
+		/* TODO remove this line */
 		console.log(selected);
 		const countryData = await doGet(`${REST_URL.byName}${selected}`);
 
