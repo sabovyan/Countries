@@ -45,12 +45,21 @@ export function matchName(selected) {
 		res = 'DR Congo';
 	} else if (selected === 'central african rep.') {
 		res = 'Central African Republic';
+	} else if (selected === 'czechia') {
+		res = 'Czech Republic';
 	} else {
 		res = selected;
 	}
 
 	return res;
 }
+
+/**
+ *
+ * @param {function} func takes the function that should to be delayed
+ * @param {number} wait amount of delay time
+ * @returns {function} which takes arguments from cb function and will implement it inside
+ */
 
 export function debounce(func, wait) {
 	let timeout;
