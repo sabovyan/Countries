@@ -46,15 +46,17 @@ SignUpLink.addEventListener('click', () => {
 /* SECTION  login password registration */
 regBtn.addEventListener('click', (e) => {
 	e.preventDefault();
+	console.log(regLogin.value.trim());
 	const storage = window.localStorage;
 	const storedUsers = JSON.parse(storage.getItem('users'));
+	console.log(storedUsers);
 	try {
 		const users = {};
 		if (regLogin.value.trim() === '') {
 			throw new Error('Your Login should not be empty');
 		} else if (regLogin.value.trim().length < 5) {
 			throw new Error('Your Login should not be less than 5 characters');
-		} else if (storedUsers[regLogin.value.trim()]) {
+		} else if (storedUsers && storedUsers[regLogin.value.trim()]) {
 			throw new Error('this name is already in use');
 		} else if (regPassword.value.trim().length < 5) {
 			throw new Error('Your password should not be less than 5 characters');
@@ -113,7 +115,7 @@ SignInBtn.addEventListener('click', (e) => {
 			}
 		}
 		if (users[login] && users[login] === password) {
-			window.location.pathname = './src/pages/countries.html';
+			window.location.href = './src/pages/countries.html';
 		}
 	} catch (err) {
 		// eslint-disable-next-line no-alert
