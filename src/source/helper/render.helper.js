@@ -11,7 +11,7 @@ import { Country } from './class.helper';
 
 const svg = select('.countries__section-map')
 	.append('svg')
-	.attr('id', '#countriesMap')
+	.attr('id', 'countriesMap')
 	.attr('width', 960)
 	.attr('height', 500);
 const countriesCard = document.querySelector('.countries__card');
