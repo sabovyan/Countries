@@ -1,0 +1,12 @@
+.favorites__main {
+	min-height: 80vh;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 180px);
+	justify-content: center;
+	align-content: center;
+	gap: 1rem;
+}
+.favorites__main .country__container {
+	opacity: 1;
+	transform: scale(1);
+}

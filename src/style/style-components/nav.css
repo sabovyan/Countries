@@ -168,7 +168,7 @@
 
 	.nav__list-container--display {
 		transform: translateX(0);
-		transition: transform 0.5s ease-in;
+		transition: transform 0.3s ease-in;
 	}
 
 	.nav__list-container--hide {
