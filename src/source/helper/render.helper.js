@@ -22,12 +22,8 @@ export async function renderMap() {
 	const g = getMap(svg, countriesMap);
 	g.on('click', async (d) => {
 		let selected = d.properties.name.toLowerCase();
-
-		// TODO delete console log
-		console.log(selected);
-
 		selected = matchName(selected);
-
+		console.log(selected);
 		const countryData = await doGet(`${REST_URL.byName}${selected}`);
 
 		state.country = new Country(
@@ -62,22 +58,14 @@ export async function renderTable() {
 				(state.countryCode[countryData.name] = countryData.alpha3Code)
 		);
 	} else {
-		try {
-			result = await doGet(`${REST_URL.byName}${searchInput.value}`);
-			if (result) {
-				throw new Error('Provided input is incorrect');
-			}
-		} catch (err) {
-			console.error(err.message);
-		}
+		result = await doGet(`${REST_URL.byName}${searchInput.value}`);
 	}
 	result.forEach((countryData) => {
 		const countryHTML = CreateCountryHTML(countryData, state);
-		tableContainer.append(countryHTML);
 
+		tableContainer.append(countryHTML);
 		tableContainer.style.display = 'grid';
 		appearOnScroll.observe(countryHTML);
-		return countryHTML;
 	});
 
 	const starButtons = document.querySelectorAll('.country__star');
