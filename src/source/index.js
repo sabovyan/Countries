@@ -115,7 +115,7 @@ SignInBtn.addEventListener('click', (e) => {
 			}
 		}
 		if (users[login] && users[login] === password) {
-			window.location.href = './pages/countries.html';
+			window.location.href = 'pages/countries.html';
 		}
 	} catch (err) {
 		// eslint-disable-next-line no-alert
