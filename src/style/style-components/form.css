@@ -86,10 +86,6 @@
 }
 
 @media screen and (max-width: 900px) {
-	/* TODO check the sizes if it needs activate flex-column  */
-	.forms__container {
-		/* flex-direction: column; */
-	}
 	.form__note {
 		display: block;
 		padding: 10px 0;
