@@ -1,3 +1,10 @@
+/**
+ * @description takes a url as an arguments fetches data from that link
+ * @param {string} url
+ * @returns {Promise}
+ * @example
+ * result = await doGet(REST_URL.all);
+ */
 export const doGet = async (url) => {
 	let r;
 	try {

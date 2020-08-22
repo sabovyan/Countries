@@ -20,6 +20,8 @@ export function changeState(elem, removedClass, addedClass) {
  * @param {HTMLElement} navToggler a button that is responsible for displaying of hiding nav list
  * @param {HTMLElement} navList a list of navigation HTMLElements
  * @returns {void}
+ * @example
+ * navToggler.addEventListener('click', navToggle.bind(null, navToggler, navList));
  */
 export function navToggle(navToggler, navList) {
 	if (navToggler.classList.contains('nav__toggler--close')) {
@@ -35,6 +37,8 @@ export function navToggle(navToggler, navList) {
  * this function is dedicated to format large numbers related to country's area and population
  * @param {number} number take a number
  * @returns {string} that instead of zeros will display million or thousand
+ * @example
+ * formatNumber(country.details.population)
  */
 export function formatNumber(number) {
 	let res = null;
@@ -56,6 +60,9 @@ export function formatNumber(number) {
  * takes the country's name from the map, turns it into a proper name for searching
  * @param {string} selected
  * @returns {string} which corresponds to the API requirements
+ * @example
+ * let selected = d.properties.name.toLowerCase();
+		selected = matchName(selected);
  */
 export function matchName(selected) {
 	let res = '';
@@ -77,6 +84,9 @@ export function matchName(selected) {
  * @param {function} func takes the function that should to be delayed
  * @param {number} wait amount of delay time
  * @returns {function} which takes arguments from cb function and will implement it inside
+ * @example
+ * const search = debounce(renderTable, 700);
+ * searchInput.addEventListener('input', search);
  */
 
 export function debounce(func, wait) {

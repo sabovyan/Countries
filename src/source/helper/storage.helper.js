@@ -5,6 +5,13 @@
  * @param {Array} favCountries
  * @param {string} alpha3Code
  * @returns all the favorites countries' alpha3code
+ * @example 
+ * state.favCountries = setFavorite(
+				button,
+				'country__star--added',
+				state.favCountries,
+				state.countryCode[countryName]
+			);
  */
 export function setFavorite(star, className, favCountries, alpha3Code) {
 	const storage = window.localStorage;

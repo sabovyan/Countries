@@ -8,6 +8,8 @@ import { formatNumber } from './function.helper';
  * @param {number} width to set default with for image
  * @param {string} src a url for image
  * @returns {HTMLElement} image tag
+ * @example
+ * const img = createImage('card__image', 100, country.flag);
  */
 const createImage = (className, width, src) => {
 	const img = document.createElement('img');
@@ -22,6 +24,8 @@ const createImage = (className, width, src) => {
  * @param {object} country
  * @param {HTMLElement} body
  * @returns {HTMLCollection} body argument as an html collection
+ * @example
+ * createCard(state.country, cardBody);
  */
 export function createCard(country, body) {
 	const img = createImage('card__image', 100, country.flag);
@@ -54,6 +58,8 @@ export function createCard(country, body) {
  * @param {object} param0 an object that contains all the information for about country
  * @param {object} param1 the state object that contains favorite countries
  * @returns {HTMLCollection} with all the necessary data about country
+ * @example
+ * const countryHTML = CreateCountryHTML(countryData, state);
  */
 export function CreateCountryHTML(
 	{ flag, name, region, alpha3Code },
@@ -111,6 +117,13 @@ const appearOptions = {
 	rootMargin: '0px 0px -125px 0px',
 };
 
+/**
+ * @description listens to the HTML element that is passed in
+ * and automatically displays upcoming cards
+ * @type {IntersectionObserver}
+ * @example
+ * appearOnScroll.observe(countryHTML);
+ */
 export const appearOnScroll = new IntersectionObserver(
 	(entries, appearOnScroll) => {
 		entries.forEach((entry) => {

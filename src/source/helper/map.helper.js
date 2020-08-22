@@ -4,6 +4,8 @@ import { geoPath, geoMercator, zoom, event } from 'd3';
  *
  * @param {array} countries  takes geo path of different countries
  * @returns {SVGPathElement} a group of path elements
+ * @example
+ * const g = getMap(svg, countriesMap);
  */
 export function getMap(svg, countries) {
 	const width = svg.attr('width');
