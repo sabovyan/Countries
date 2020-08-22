@@ -1,6 +1,6 @@
 .nav__main {
-	padding: 10px;
 	min-height: 40px;
+	padding: 10px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -12,7 +12,6 @@
 	width: 40px;
 	padding: 2px 0;
 	margin-left: 30px;
-	/* ANCHOR this setting is temporary */
 	background-color: transparent;
 	z-index: 1;
 }
@@ -39,18 +38,24 @@
 	align-items: center;
 	justify-content: flex-end;
 	font-size: var(--nav-font-size);
-	/* ANCHOR this setting is temporary */
 	background-color: transparent;
 }
 
 .nav__item {
+	text-align: end;
 	margin-right: 20px;
-	padding: 4px 10px;
 	min-width: 200px;
+	display: flex;
+	align-items: center;
 }
 .nav__icon {
 	width: 18px;
 	margin-right: 10px;
+	fill: var(--text-color);
+}
+
+.nav__login {
+	color: var(--sec-color);
 }
 
 .nav__link {
@@ -64,9 +69,6 @@
 }
 .nav__link:hover {
 	color: var(--sec-color);
-}
-.nav__icon {
-	fill: var(--text-color);
 }
 
 .nav__toggler {
