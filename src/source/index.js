@@ -46,12 +46,12 @@ SignUpLink.addEventListener('click', () => {
 /* SECTION  login password registration */
 regBtn.addEventListener('click', (e) => {
 	e.preventDefault();
-	console.log(regLogin.value.trim());
-	const storage = window.localStorage;
-	const storedUsers = JSON.parse(storage.getItem('users'));
-	console.log(storedUsers);
+
 	try {
+		const storage = window.localStorage;
+		const storedUsers = JSON.parse(storage.getItem('users'));
 		const users = {};
+
 		if (regLogin.value.trim() === '') {
 			throw new Error('Your Login should not be empty');
 		} else if (regLogin.value.trim().length < 5) {
