@@ -20,7 +20,7 @@
 .table__container {
 	margin: 40px 100px 0;
 	display: none;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	gap: 30px;
 	grid-gap: 30px;
 	font-weight: 700;
@@ -108,7 +108,7 @@
 		grid-template-columns: repeat(2, 1fr);
 		grid-gap: 20px;
 		gap: 20px;
-		font-weight: 900;
+		font-weight: 100;
 		font-size: 1.1rem;
 	}
 	.country__bottomLine {
@@ -137,10 +137,10 @@
 		margin: 20px;
 		display: none;
 		grid-template-columns: repeat(3, 1fr);
-		grid-gap: 20px;
-		gap: 20px;
-		font-weight: 900;
-		font-size: 1.1rem;
+		grid-gap: 30px;
+		gap: 30px;
+		font-weight: 100;
+		font-size: 1rem;
 	}
 	.country__bottomLine {
 		flex-direction: column;
