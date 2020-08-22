@@ -28,8 +28,6 @@ export async function renderMap() {
 		let selected = d.properties.name.toLowerCase();
 		selected = matchName(selected);
 
-		/* TODO remove this line */
-		console.log(selected);
 		const countryData = await doGet(`${REST_URL.byName}${selected}`);
 
 		state.country = new Country(

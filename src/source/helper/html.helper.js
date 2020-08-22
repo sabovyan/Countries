@@ -108,7 +108,7 @@ export function CreateCountryHTML(
  */
 const appearOptions = {
 	threshold: 0,
-	rootMargin: '0px 0px -100px 0px',
+	rootMargin: '0px 0px -125px 0px',
 };
 
 export const appearOnScroll = new IntersectionObserver(
