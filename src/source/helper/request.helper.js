@@ -6,7 +6,7 @@ export const doGet = async (url) => {
 			throw new Error('invalid Data');
 		}
 		if (r.status >= 500 && r.status < 600) {
-			throw new Error('there is problem with server');
+			throw new Error('there is a problem with server');
 		}
 	} catch (err) {
 		console.error(err.message);

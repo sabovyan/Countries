@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-import { menuState, state } from './constants/constants';
-import { changeState, debounce } from './helper/function.helper';
+import { state } from './constants/constants';
+import { debounce, navToggle } from './helper/function.helper';
 import { setFavorite } from './helper/storage.helper';
 import { renderMap, renderTable } from './helper/render.helper';
 
@@ -10,16 +10,6 @@ const navToggler = document.querySelector('.nav__toggler');
 
 /* SECTION table */
 const searchInput = document.querySelector('#search');
-
-navToggler.addEventListener('click', () => {
-	if (navToggler.classList.contains('nav__toggler--close')) {
-		changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
-		changeState(navList, menuState.navList.display, menuState.navList.hide);
-	} else {
-		changeState(navToggler, menuState.toggle.open, menuState.toggle.close);
-		changeState(navList, menuState.navList.hide, menuState.navList.display);
-	}
-});
 
 /* card */
 const countriesCard = document.querySelector('.countries__card');
@@ -87,8 +77,10 @@ countriesCard.addEventListener('click', (e) => {
 	}
 });
 
-/* SECTION Countries inner navigation */
+/* SECTION Countries main navigation */
+navToggler.addEventListener('click', navToggle.bind(null, navToggler, navList));
 
+/* SECTION Countries inner navigation */
 CountriesNav.forEach((navItem) => {
 	navItem.addEventListener('click', (e) => {
 		if (e.target === countriesNavMap) {
@@ -108,5 +100,6 @@ CountriesNav.forEach((navItem) => {
 	});
 });
 
+/* Main search */
 const search = debounce(renderTable, 700);
 searchInput.addEventListener('input', search);

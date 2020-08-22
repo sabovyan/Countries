@@ -1,3 +1,5 @@
+import { menuState } from '../constants/constants';
+
 /**
  *
  * @param {HTMLElement} elem
@@ -14,6 +16,22 @@ export function changeState(elem, removedClass, addedClass) {
 }
 
 /**
+ * @description changes the state of the navigation lists from displayed to hide and vice versa
+ * @param {HTMLElement} navToggler a button that is responsible for displaying of hiding nav list
+ * @param {HTMLElement} navList a list of navigation HTMLElements
+ * @returns {void}
+ */
+export function navToggle(navToggler, navList) {
+	if (navToggler.classList.contains('nav__toggler--close')) {
+		changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
+		changeState(navList, menuState.navList.display, menuState.navList.hide);
+	} else {
+		changeState(navToggler, menuState.toggle.open, menuState.toggle.close);
+		changeState(navList, menuState.navList.hide, menuState.navList.display);
+	}
+}
+
+/**
  * this function is dedicated to format large numbers related to country's area and population
  * @param {number} number take a number
  * @returns {string} that instead of zeros will display million or thousand
@@ -25,7 +43,7 @@ export function formatNumber(number) {
 	} else if (number > 1000000) {
 		res = `${Math.round(number / 1000000)} million`;
 	} else {
-		let num = Math.round(number / 1000);
+		const num = Math.round(number / 1000);
 		if (num <= 1000) {
 			res = 'about one thousand';
 		}

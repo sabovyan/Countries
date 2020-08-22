@@ -1,3 +1,11 @@
+/**
+ *
+ * @param {HTMLElement} star
+ * @param {string} className
+ * @param {Array} favCountries
+ * @param {string} alpha3Code
+ * @returns all the favorites countries' alpha3code
+ */
 export function setFavorite(star, className, favCountries, alpha3Code) {
 	const storage = window.localStorage;
 	const favorites = favCountries || [];
