@@ -33,7 +33,7 @@ export const MAP_URL =
 export const REST_URL = {
 	byName: 'https://restcountries.eu/rest/v2/name/',
 	all: 'https://restcountries.eu/rest/v2/all',
-	byCode: 'https://restcountries.eu/rest/v2/alpha/',
+	byCode: 'https://restcountries.eu/rest/v2/alpha?codes=',
 };
 
 export const state = {

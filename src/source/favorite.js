@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import { REST_URL, state, menuState } from './constants/constants';
-import { Country } from './helper/class.helper';
 import { doGet } from './helper/request.helper';
-import { createCard } from './helper/html.helper';
+import { CreateCountryHTML } from './helper/html.helper';
 import { changeState } from './helper/function.helper';
+import { setFavorite } from './helper/storage.helper';
 
 const navList = document.querySelector('.l-nav__list-container');
 const navToggler = document.querySelector('.nav__toggler');
@@ -18,14 +18,43 @@ navToggler.addEventListener('click', () => {
 	}
 });
 
-// console.log(favoriteCountries);
 const faveMain = document.querySelector('.favorites__main');
-const fn = async () => {
+const renderFavorites = async () => {
 	faveMain.innerHTML = '';
-	state.favCountries.forEach(async (code) => {
-		const faveCountry = await doGet(`${REST_URL.byCode}${code}`);
 
-		// console.log(country);
+	const result = await doGet(REST_URL.all);
+
+	result.forEach(
+		// eslint-disable-next-line no-return-assign
+		(countryData) =>
+			(state.countryCode[countryData.name] = countryData.alpha3Code)
+	);
+
+	const favorites = state.favCountries.join(';');
+
+	const faveCountries = await doGet(`${REST_URL.byCode}${favorites}`);
+	faveCountries.forEach((fav) => {
+		const country = CreateCountryHTML(fav, state);
+		faveMain.append(country);
+	});
+
+	// const countryContainer = document.querySelector('.country__container');
+	const starButtons = document.querySelectorAll('.country__star');
+	starButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const countryContainer = button.parentElement.parentElement;
+			const countryName = button.nextSibling.innerText;
+			state.favCountries = setFavorite(
+				button,
+				'country__star--added',
+				state.favCountries,
+				state.countryCode[countryName]
+			);
+			if (!button.classList.contains('country__star--added')) {
+				countryContainer.style.display = 'none';
+			}
+		});
 	});
 };
-fn();
+
+renderFavorites();
