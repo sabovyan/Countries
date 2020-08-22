@@ -85,7 +85,7 @@
 }
 
 .nav__toggler--close > .nav__line1 {
-	transform: rotate(-45deg);
+	transform: rotate(-45deg) translate(0px, 5px);
 	transform-origin: right;
 	transition: transform 0.1s ease-in;
 }
@@ -94,14 +94,14 @@
 	transition: opacity 0.1s ease-in;
 }
 .nav__toggler--close > .nav__line3 {
-	transform: rotate(45deg);
+	transform: rotate(45deg) translate(0px, -5px);
 	transform-origin: right;
 	transition: transform 0.1s ease-in;
 }
 
 .nav__toggler--open > .nav__line1 {
 	transform: rotate(0);
-	transform-origin: right;
+	transform-origin: left;
 	transition: transform 0.1s ease-in;
 }
 .nav__toggler--open > .nav__line2 {
@@ -110,7 +110,7 @@
 }
 .nav__toggler--open > .nav__line3 {
 	transform: rotate(0);
-	transform-origin: right;
+	transform-origin: left;
 	transition: transform 0.1s ease-in;
 }
 .nav__theme {
@@ -187,6 +187,7 @@
 	}
 
 	.nav__toggler {
-		display: block;
+		display: flex;
+		flex-direction: column;
 	}
 }

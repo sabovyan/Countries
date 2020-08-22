@@ -22,7 +22,8 @@
 }
 @media only screen and (max-width: 600px) {
 	#countriesMap {
-		width: 420px;
+		width: 300px;
+		height: 300px;
 	}
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
