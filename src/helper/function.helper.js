@@ -1,4 +1,4 @@
-import { menuState } from '../constants/constants';
+import { menuState } from "../constants/constants";
 
 /**
  *
@@ -11,8 +11,8 @@ import { menuState } from '../constants/constants';
  */
 
 export function changeState(elem, removedClass, addedClass) {
-	elem.classList.remove(removedClass);
-	elem.classList.add(addedClass);
+  elem.classList.remove(removedClass);
+  elem.classList.add(addedClass);
 }
 
 /**
@@ -24,13 +24,13 @@ export function changeState(elem, removedClass, addedClass) {
  * navToggler.addEventListener('click', navToggle.bind(null, navToggler, navList));
  */
 export function navToggle(navToggler, navList) {
-	if (navToggler.classList.contains('nav__toggler--close')) {
-		changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
-		changeState(navList, menuState.navList.display, menuState.navList.hide);
-	} else {
-		changeState(navToggler, menuState.toggle.open, menuState.toggle.close);
-		changeState(navList, menuState.navList.hide, menuState.navList.display);
-	}
+  if (navToggler.classList.contains("nav__toggler--close")) {
+    changeState(navToggler, menuState.toggle.close, menuState.toggle.open);
+    changeState(navList, menuState.navList.display, menuState.navList.hide);
+  } else {
+    changeState(navToggler, menuState.toggle.open, menuState.toggle.close);
+    changeState(navList, menuState.navList.hide, menuState.navList.display);
+  }
 }
 
 /**
@@ -41,19 +41,19 @@ export function navToggle(navToggler, navList) {
  * formatNumber(country.details.population)
  */
 export function formatNumber(number) {
-	let res = null;
-	if (number > 1000000000) {
-		res = `more than ${Math.round(number / 1000000000)} billion`;
-	} else if (number > 1000000) {
-		res = `${Math.round(number / 1000000)} million`;
-	} else {
-		const num = Math.round(number / 1000);
-		if (num <= 1000) {
-			res = 'about one thousand';
-		}
-		res = `${Math.round(number / 1000)} thousand`;
-	}
-	return res;
+  let res = null;
+  if (number > 1000000000) {
+    res = `more than ${Math.round(number / 1000000000)} billion`;
+  } else if (number > 1000000) {
+    res = `${Math.round(number / 1000000)} million`;
+  } else {
+    const num = Math.round(number / 1000);
+    if (num <= 1000) {
+      res = "about one thousand";
+    }
+    res = `${Math.round(number / 1000)} thousand`;
+  }
+  return res;
 }
 
 /**
@@ -65,18 +65,18 @@ export function formatNumber(number) {
 		selected = matchName(selected);
  */
 export function matchName(selected) {
-	let res = '';
-	if (selected === 'dem. rep. congo') {
-		res = 'DR Congo';
-	} else if (selected === 'central african rep.') {
-		res = 'Central African Republic';
-	} else if (selected === 'czechia') {
-		res = 'Czech Republic';
-	} else {
-		res = selected;
-	}
+  let res = "";
+  if (selected === "dem. rep. congo") {
+    res = "DR Congo";
+  } else if (selected === "central african rep.") {
+    res = "Central African Republic";
+  } else if (selected === "czechia") {
+    res = "Czech Republic";
+  } else {
+    res = selected;
+  }
 
-	return res;
+  return res;
 }
 
 /**
@@ -90,15 +90,15 @@ export function matchName(selected) {
  */
 
 export function debounce(func, wait) {
-	let timeout;
+  let timeout;
 
-	return function executedFunction(...args) {
-		const later = () => {
-			clearTimeout(timeout);
-			func(...args);
-		};
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
 
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-	};
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }

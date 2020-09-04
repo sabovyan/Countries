@@ -1,58 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./assets/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- ANCHOR og meta -->
+    <meta property="og:image" content="./assets/images/world-logo.svg" />
+    <meta proerty="og:image:width" content="1500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Globe" />
+    <meta property="og:description" content="Globe on your hand" />
+    <meta property="og:title" content="Globe on your hand" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sabovyan.github.io/countries/" />
+    <!-- ANCHOR twitter cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="Login page" />
+    <meta name="twitter:creator" content="@SargisAbovyan" />
+    <meta name="twitter:title" content="Timeline" />
+    <meta name="twitter:description" content="Your map is in your hand" />
+    <meta name="twitter:image" content="./assets/images/world-logo.svg" />
+    <meta name="twitter:image:alt" content="Logo" />
+    <!-- google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="style/style.css" />
+    <title>login</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="./assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <!-- ANCHOR og meta -->
-  <meta property="og:image" content="./assets/images/world-logo.svg">
-  <meta proerty="og:image:width" content='1500'>
-  <meta property="og:image:height" content="500" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="Globe" />
-  <meta property="og:description" content="Globe on your hand">
-  <meta property="og:title" content="Globe on your hand">
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sabovyan.github.io/countries/" />
-  <!-- ANCHOR twitter cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="Login page">
-  <meta name="twitter:creator" content="@SargisAbovyan">
-  <meta name="twitter:title" content="Timeline">
-  <meta name="twitter:description" content="Your map is in your hand">
-  <meta name="twitter:image" content="./assets/images/world-logo.svg">
-  <meta name="twitter:image:alt" content="Logo">
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet" />
-  <!-- style -->
-  <link rel="stylesheet" href="style/style.css" />
-  <title>login</title>
-</head>
+  <body>
+    <!-- SECTION nav  -->
+    <nav class="nav__main">
+      <!-- ANCHOR themecolor -->
+      <div class="nav__theme nav__theme--light">
+        <span class="nav__theme-slider nav__theme-slider--light"> </span>
+      </div>
 
-<body>
-  <!-- SECTION nav  -->
-  <nav class="nav__main">
-    <!-- ANCHOR themecolor -->
-    <div class="nav__theme nav__theme--light">
-      <span class="nav__theme-slider nav__theme-slider--light"> </span>
-    </div>
-
-    <!-- nav logo -->
-    <svg class="nav__logo nav__logo--light" width="30" version="1.1" xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 480.1 480.1"
-      style="enable-background: new 0 0 480.1 480.1;" xml:space="preserve">
-      <g>
+      <!-- nav logo -->
+      <svg
+        class="nav__logo nav__logo--light"
+        width="30"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 480.1 480.1"
+        style="enable-background: new 0 0 480.1 480.1"
+        xml:space="preserve"
+      >
         <g>
-          <path d="M240.135,0.05C144.085,0.036,57.277,57.289,19.472,145.586l-2.992,0.992l1.16,3.48
+          <g>
+            <path
+              d="M240.135,0.05C144.085,0.036,57.277,57.289,19.472,145.586l-2.992,0.992l1.16,3.48
             c-49.776,122.766,9.393,262.639,132.159,312.415c28.673,11.626,59.324,17.594,90.265,17.577
             c132.548,0.02,240.016-107.416,240.036-239.964S372.684,0.069,240.135,0.05z M428.388,361.054l-12.324-12.316V320.05
             c0.014-1.238-0.26-2.462-0.8-3.576l-31.2-62.312V224.05c0-2.674-1.335-5.172-3.56-6.656l-24-16
@@ -82,86 +111,115 @@
             c8.961,9.981,17.014,20.741,24.064,32.152l-39.36,13.12l-42.616-7.104l-14.08-21.12c-1.476-2.213-3.956-3.547-6.616-3.56h-48
             c-2.122,0-4.156,0.844-5.656,2.344l-24,24c-1.782,1.781-2.621,4.298-2.264,6.792l8,56c0.403,2.769,2.223,5.126,4.8,6.216l56,24
             c1.604,0.695,3.394,0.838,5.088,0.408l28.568-7.144l17.464,11.664v27.72c-0.014,1.238,0.26,2.462,0.8,3.576l31.2,62.312v30.112
-            c0,2.122,0.844,4.156,2.344,5.656l16.736,16.744C344.921,473.383,204.549,493.415,105.616,419.191z" />
+            c0,2.122,0.844,4.156,2.344,5.656l16.736,16.744C344.921,473.383,204.549,493.415,105.616,419.191z"
+            />
+          </g>
         </g>
-      </g>
-    </svg>
+      </svg>
 
-    <!-- SECTION nav list  -->
-    <div class="l-nav__list-container nav__list-container--hide">
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="./pages/countries.html" class="nav__link">
-            Countries
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <main class="sign__main">
-    <div class="forms__background">
-      <div class="forms__container">
-        <div class="forms__overlap forms__overlap--right"></div>
-
-        <form class="form form__signIn form__display" action="">
-          <h4 class="form__title">sign in</h4>
-          <section class="form__section form__sign-section">
-            <label class="form__label form__sign-label" for="SignIn-login">login</label>
-            <input class="form__input" type="text" name="SignIn-login" id="SignIn-login" autocomplete="off" required />
-          </section>
-          <section class="form__section form__password-section">
-            <label class="form__label form__sign-password" for="SignIn-password">
-              password
-            </label>
-            <input class="form__input" type="password" name="SignIn-password" id="SignIn-password" required />
-          </section>
-          <section class="form__section">
-            <button id="SignIn-submit" class="form__submit" type="submit">
-              Sign in
-            </button>
-          </section>
-          <section class="form__section">
-            <p class="form__note">
-              Don't have an account?
-              <span tabindex="0" class="form__link signIn-link">
-                Register
-              </span>
-            </p>
-          </section>
-        </form>
-
-        <form class="form form__signUp form__hide" action="">
-          <h4 class="form__title">Register</h4>
-          <section class="form__section">
-            <label class="form__label" for="signUp-login">login </label>
-            <input class="form__input" type="text" name="login" id="signUp-login" autocomplete="off" required
-              minlength="5" />
-          </section>
-          <section class="form__section">
-            <label class="form__label" for="signUp-password">password</label>
-            <input class="form__input" type="password" name="signUp-password" id="signUp-password" required
-              minlength="5" />
-          </section>
-          <section class="form__section">
-            <button id="SignUp-submit" class="form__submit" type="submit">
-              Sign Up
-            </button>
-          </section>
-          <section class="form__section">
-            <p class="form__note">
-              Back to
-              <span tabindex="0" class="form__link signUp-link">
-                Sign In
-              </span>
-            </p>
-          </section>
-        </form>
+      <!-- SECTION nav list  -->
+      <div class="l-nav__list-container nav__list-container--hide">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="./pages/countries.html" class="nav__link"> Countries </a>
+          </li>
+        </ul>
       </div>
-    </div>
-  </main>
-  <script src="source/theme.loader.js"></script>
-  <script src="source/index.js"></script>
-</body>
+    </nav>
 
+    <main class="sign__main">
+      <div class="forms__background">
+        <div class="forms__container">
+          <div class="forms__overlap forms__overlap--right"></div>
+
+          <form class="form form__signIn form__display" action="">
+            <h4 class="form__title">sign in</h4>
+            <section class="form__section form__sign-section">
+              <label class="form__label form__sign-label" for="SignIn-login"
+                >login</label
+              >
+              <input
+                class="form__input"
+                type="text"
+                name="SignIn-login"
+                id="SignIn-login"
+                autocomplete="off"
+                required
+              />
+            </section>
+            <section class="form__section form__password-section">
+              <label
+                class="form__label form__sign-password"
+                for="SignIn-password"
+              >
+                password
+              </label>
+              <input
+                class="form__input"
+                type="password"
+                name="SignIn-password"
+                id="SignIn-password"
+                required
+              />
+            </section>
+            <section class="form__section">
+              <button id="SignIn-submit" class="form__submit" type="submit">
+                Sign in
+              </button>
+            </section>
+            <section class="form__section">
+              <p class="form__note">
+                Don't have an account?
+                <span tabindex="0" class="form__link signIn-link">
+                  Register
+                </span>
+              </p>
+            </section>
+          </form>
+
+          <form class="form form__signUp form__hide" action="">
+            <h4 class="form__title">Register</h4>
+            <section class="form__section">
+              <label class="form__label" for="signUp-login">login </label>
+              <input
+                class="form__input"
+                type="text"
+                name="login"
+                id="signUp-login"
+                autocomplete="off"
+                required
+                minlength="5"
+              />
+            </section>
+            <section class="form__section">
+              <label class="form__label" for="signUp-password">password</label>
+              <input
+                class="form__input"
+                type="password"
+                name="signUp-password"
+                id="signUp-password"
+                required
+                minlength="5"
+              />
+            </section>
+            <section class="form__section">
+              <button id="SignUp-submit" class="form__submit" type="submit">
+                Sign Up
+              </button>
+            </section>
+            <section class="form__section">
+              <p class="form__note">
+                Back to
+                <span tabindex="0" class="form__link signUp-link">
+                  Sign In
+                </span>
+              </p>
+            </section>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="theme.loader.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
