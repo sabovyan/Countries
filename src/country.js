@@ -20,7 +20,7 @@ const cardStarPolygon = document.querySelector('.card__star-polygon');
 /* navigation */
 const countriesNavMap = document.querySelector('.countries__item-map');
 const countriesNavTable = document.querySelector('.countries__item-table');
-const CountriesNav = [countriesNavMap, countriesNavTable];
+const countriesContainer = [countriesNavMap, countriesNavTable];
 const mapSection = document.querySelector('.countries__section-map');
 const tableSection = document.querySelector('.countries__section-table');
 
@@ -28,76 +28,76 @@ const tableSection = document.querySelector('.countries__section-table');
 const storage = window.localStorage;
 
 function displayMap() {
-	tableSection.style.display = 'none';
-	mapSection.style.display = 'flex';
-	countriesNavTable.classList.remove('countries__item--active');
-	countriesNavMap.classList.add('countries__item--active');
+  tableSection.style.display = 'none';
+  mapSection.style.display = 'flex';
+  countriesNavTable.classList.remove('countries__item--active');
+  countriesNavMap.classList.add('countries__item--active');
 }
 
 function displayTable() {
-	mapSection.style.display = 'none';
-	tableSection.style.display = 'block';
-	countriesNavMap.classList.remove('countries__item--active');
-	countriesNavTable.classList.add('countries__item--active');
+  mapSection.style.display = 'none';
+  tableSection.style.display = 'block';
+  countriesNavMap.classList.remove('countries__item--active');
+  countriesNavTable.classList.add('countries__item--active');
 }
 
 const render = async () => {
-	if (state.countryNav.map === true) {
-		renderMap();
-		displayMap();
-	}
-	if (state.countryNav.table === true) {
-		renderTable();
-		displayTable();
-	}
+  if (state.countryNav.map === true) {
+    renderMap();
+    displayMap();
+  }
+  if (state.countryNav.table === true) {
+    renderTable();
+    displayTable();
+  }
 };
 
 render();
 
 countriesCard.addEventListener('click', (e) => {
-	if (e.target === countriesCard) {
-		cardStarBtn.classList.remove('card__start--added');
-		countriesCard.style.display = 'none';
-	}
-	if (
-		e.target === cardCloseBtn ||
-		e.target === cardCloseBtn.querySelector('path')
-	) {
-		cardStarBtn.classList.remove('card__start--added');
-		countriesCard.style.display = 'none';
-	}
+  if (e.target === countriesCard) {
+    cardStarBtn.classList.remove('card__start--added');
+    countriesCard.style.display = 'none';
+  }
+  if (
+    e.target === cardCloseBtn ||
+    e.target === cardCloseBtn.querySelector('path')
+  ) {
+    cardStarBtn.classList.remove('card__start--added');
+    countriesCard.style.display = 'none';
+  }
 
-	if (e.target === cardStarBtn || e.target === cardStarPolygon) {
-		state.favCountries = setFavorite(
-			cardStarBtn,
-			'card__start--added',
-			state.favCountries,
-			state.country.alpha3Code
-		);
-	}
+  if (e.target === cardStarBtn || e.target === cardStarPolygon) {
+    state.favCountries = setFavorite(
+      cardStarBtn,
+      'card__start--added',
+      state.favCountries,
+      state.country.alpha3Code
+    );
+  }
 });
 
 /* SECTION Countries main navigation */
 navToggler.addEventListener('click', navToggle.bind(null, navToggler, navList));
 
 /* SECTION Countries inner navigation */
-CountriesNav.forEach((navItem) => {
-	navItem.addEventListener('click', (e) => {
-		if (e.target === countriesNavMap) {
-			displayMap();
-			state.countryNav.map = true;
-			state.countryNav.table = false;
-			storage.setItem('countryNav', JSON.stringify(state.countryNav));
-			searchInput.value = '';
-		}
-		if (e.target === countriesNavTable) {
-			displayTable();
-			state.countryNav.table = true;
-			state.countryNav.map = false;
-			storage.setItem('countryNav', JSON.stringify(state.countryNav));
-		}
-		render();
-	});
+countriesContainer.forEach((navItem) => {
+  navItem.addEventListener('click', (e) => {
+    if (e.target === countriesNavMap) {
+      displayMap();
+      state.countryNav.map = true;
+      state.countryNav.table = false;
+      storage.setItem('countryNav', JSON.stringify(state.countryNav));
+      searchInput.value = '';
+    }
+    if (e.target === countriesNavTable) {
+      displayTable();
+      state.countryNav.table = true;
+      state.countryNav.map = false;
+      storage.setItem('countryNav', JSON.stringify(state.countryNav));
+    }
+    render();
+  });
 });
 
 /* Main search */
